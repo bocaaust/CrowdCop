@@ -1,0 +1,9 @@
+I'll be honest, I think this is how this works, so I will be posting my simple cout<< code here
+
+#include <iostream>
+using namespace std;
+int main()
+{
+ cout<<"Hello World" << endl;
+ return 0;
+}
