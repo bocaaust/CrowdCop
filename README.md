@@ -1,6 +1,5 @@
-# HelloWorld
-This is for testing and assuring that I know how to use this website. This can be good for you too! So check it out! 
+# CrowdCop
 
+RCOS project - Fall 2015
 
-
-THIS IS SO ASSURE WE ALL KNOW HOW TO USE GITHUB, I'M STILL LEARNING !!
+I copied from a test repo to setup - KB 9/15/15
