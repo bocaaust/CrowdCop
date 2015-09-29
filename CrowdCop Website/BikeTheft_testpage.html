@@ -6,6 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bike Theft Campaign</title>
 
+    <meta property="og:url"           content="http://crowd-cop.com/BikeTheft_testpage.html" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Bike Theft" />
+    <meta property="og:description"   content="Bikes have been repeatedly stolen in the Troy area, including the RPI campus. The thefts were reported near student housing including Burdett Avenue Residence Hall (BARH)" />
+    <meta property="og:image"         content="http://www.publicdomainpictures.net/pictures/40000/velka/red-bike.jpg" />
+
 <!-- Bootstrap -->
 <link rel="stylesheet" href="css/bootstrap.css">
 
@@ -17,6 +23,16 @@
     <![endif]-->
 </head>
 <body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1502789433375993";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <nav>
   <div class="container"> 
     
@@ -93,13 +109,11 @@
 <div class="container">
   <div class="row">
     <div class="text-center col-sm-6">
-      <h3>Lorem ipsum</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, magnam?</p>
-      <a class="btn btn-danger btn-lg" href="#" role="button">Tutorials</a></div>
+      <h3>Share this page</h3>
+      <a class="btn btn-danger btn-lg" href="#share" role="button">Share</a></div>
     <div class="text-center col-sm-6">
-      <h3>Lorem ipsum</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, magnam?</p>
-      <a class="btn btn-info btn-lg" href="#" role="button">Documentation</a></div>
+      <h3>Crowd fund this issue</h3>
+      <a class="btn btn-info btn-lg" href="#crowd-fund" role="button">Crowd Fund</a></div>
   </div>
 </div>
 <hr>
@@ -138,31 +152,47 @@
   </div>
 </section>
 <div class="container">
+  <a name = "share"></a>
   <div class="row">
-    <div class="col-sm-6">
-      <div class="thumbnail"> <img src="img/600X300.gif" alt="Thumbnail Image 1" class="img-responsive">
+  <h2 class ="text-center">Share</h2>
+  <hr>
+    <div class="col-sm-4">
+      <div class="thumbnail">
         <div class="caption">
-          <h3>Feature</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, at.</p>
+
+          <h3>Facebook</h3>
           <hr>
-          <p><a href="#" class="btn btn-success" role="button">Button</a></p>
+          <p><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//crowd-cop.com/BikeTheft_testpage.html" class="btn btn-success" role="button">Share</a></p>
         </div>
       </div>
     </div>
-    <div class="col-sm-6">
-      <div class="thumbnail"> <img src="img/600X300.gif" alt="Thumbnail Image 1" class="img-responsive">
+    <div class="col-sm-4">
+      <div class="thumbnail">
         <div class="caption">
-          <h3>Feature</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, atque.</p>
+          <h3>Twitter</h3>
           <hr>
-          <p><a href="#" class="btn btn-success" role="button">Button</a></p>
+          <p><a href="https://twitter.com/home?status=Check%20out%20this%20CrowdCop%20campaign%3A%20http%3A//crowd-cop.com/BikeTheft_testpage.html" class="btn btn-success" role="button">Tweet</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3>Google+</h3>
+          <hr>
+          <p><a href="https://plus.google.com/share?url=http%3A//crowd-cop.com/BikeTheft_testpage.html" class="btn btn-success" role="button">Share</a></p>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
 <div class="container">
   <div class="row">
+  <a name = "crowd-fund"></a>
     <h1>Select an amount to crowd fund</h1>
     <hr>
     <div class="col-lg-3 col-sm-6">
@@ -288,6 +318,7 @@
     </div>
   </div>
 </div>
+
 <hr>
 <div class="container">
   <div class="row">
