@@ -73,7 +73,7 @@ $form5 = strip_tags($_REQUEST['form5']);
 
 $headers="From:tips@crowd-cop.com\r\nContent-type:text/html\r\n";
 $subject = 'Feedback from Tip';
-mail('tips@crowd-cop.com', $subject, '<html><body>'.$form99.'<p><b>Date</b><p>'.$form3.'<p><b>Location</b><p>'.$form4.'<p><b>PayPal Username (Compensation for Successful Tips</b><p>'.$form5.'<p>', $headers);}
+mail('tips@crowd-cop.com', $subject, '<html><body>'.$form9.'<p><b>Date</b><p>'.$form3.'<p><b>Location</b><p>'.$form4.'<p><b>PayPal Username (Compensation for Successful Tips</b><p>'.$form5.'<p>', $headers);}
 
 ?>
 
