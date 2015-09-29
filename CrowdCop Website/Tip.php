@@ -34,7 +34,7 @@
             <li><a href="#">History</a> </li>
             <li><a href="#">Nearby Campaigns</a> </li>
             <li class="divider"></li>
-            <li><a href="#">Suggest a Campaign</a> </li>
+            <li><a href="/SuggestaCampaign.php">Suggest a Campaign</a> </li>
           </ul>
         </li>
       </ul>

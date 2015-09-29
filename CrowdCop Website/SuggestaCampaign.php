@@ -19,12 +19,12 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="#">CrowdCop</a></div>
+      <a class="navbar-brand" href="/index.html">CrowdCop</a></div>
     
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Submit a Tip <span class="sr-only">(current)</span></a> </li>
+        <li class="active"><a href="/Tip.php">Submit a Tip <span class="sr-only">(current)</span></a> </li>
         <li><a href="#">Dashboard</a> </li>
         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My CrowdCop<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -32,7 +32,7 @@
             <li><a href="#">History</a> </li>
             <li><a href="#">Nearby Campaigns</a> </li>
             <li class="divider"></li>
-            <li><a href="#">Suggest a Campaign</a> </li>
+            <li><a href="/SuggestaCampaign.php">Suggest a Campaign</a> </li>
           </ul>
         </li>
       </ul>
