@@ -201,14 +201,18 @@
       <label for="usr">Type an amount (min $1)</label>
     </div>
     <div class ="col-sm-2">
-      <input type="text" class="form-control" id="usr"></div>
+      <input type="text" class="form-control" id="usr" ></div>
     <div class = "col-sm-2">
-      <a class="btn btn-primary btn-lg" role = "button" type = "submit">Proceed</a>
+      <a class="btn btn-primary btn-lg" role = "button" id = "Payment" onclick = "ProcessPayment(document.getElementsByName('usr')[0])" type = "submit">Proceed</a>
     </div>
     </div>    
   </div>
 </div>
-
+<script>
+function ProcessPayment(amount) {
+	
+}
+</script>
 <hr>
 <div class="container">
   <div class="row">
