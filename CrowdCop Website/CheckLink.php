@@ -1,12 +1,12 @@
 <?php
-
-       if (isDomainAvailible('http://www.publicdomainpictures.net/pictures/40000/velka/red-bike.jpg'))
+//needs to pull test link from database
+        if (isDomainAvailible('http://www.publicdomainpictures.net/pictures/40000/velka/red-bike.jpg'))
        {
                $var = 'http://www.publicdomainpictures.net/pictures/40000/velka/red-bike.jpg';
        }
        else
        {
-               $var = ;
+               $var = 'http://crowd-cop.com/img/Default_Image.png';
        }
 
        //returns true, if domain is availible, false if not
