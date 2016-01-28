@@ -1,12 +1,12 @@
 <?php
 
-       if (isDomainAvailible('http://www.css-tricks.com'))
+       if (isDomainAvailible('http://www.publicdomainpictures.net/pictures/40000/velka/red-bike.jpg'))
        {
-               echo "Up and running!";
+               $var = 'http://www.publicdomainpictures.net/pictures/40000/velka/red-bike.jpg';
        }
        else
        {
-               echo "Woops, nothing found there.";
+               $var = ;
        }
 
        //returns true, if domain is availible, false if not
