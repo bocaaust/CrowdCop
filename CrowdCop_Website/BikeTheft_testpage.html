@@ -78,11 +78,47 @@
   </div>
   <!-- /.container-fluid --> 
 </nav>
+<?php
+
+       if (isDomainAvailible('http://www.publicdomainpictures.net/pictures/40000/velka/red-bike.jpg'))
+       {
+               $var = 'http://www.publicdomainpictures.net/pictures/40000/velka/red-bike.jpg';
+       }
+       else
+       {
+               $var = 'http://crowd-cop.com/img/Default_Image.png';
+       }
+
+       //returns true, if domain is availible, false if not
+       function isDomainAvailible($domain)
+       {
+               //check, if a valid url is provided
+               if(!filter_var($domain, FILTER_VALIDATE_URL))
+               {
+                       return false;
+               }
+
+               //initialize curl
+               $curlInit = curl_init($domain);
+               curl_setopt($curlInit,CURLOPT_CONNECTTIMEOUT,10);
+               curl_setopt($curlInit,CURLOPT_HEADER,true);
+               curl_setopt($curlInit,CURLOPT_NOBODY,true);
+               curl_setopt($curlInit,CURLOPT_RETURNTRANSFER,true);
+
+               //get answer
+               $response = curl_exec($curlInit);
+
+               curl_close($curlInit);
+
+               if ($response) return true;
+
+               return false;
+       }
+?>
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
- 
-      <div class="jumbotron" style = "background-image: url(http://www.publicdomainpictures.net/pictures/40000/velka/red-bike.jpg);
+      <div class="jumbotron" style = "background-image: url(<?=$var?>);
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -231,16 +267,16 @@
     <div class="col-lg-4 col-md-6 col-sm-6">
       <h2>Testimonials</h2>
       <div class="media">
-        <div class="media-left"> <a href="#"> <img class="media-object" src="img/35X35.gif" alt="..."> </a> </div>
+        <div class="media-left"> <a href="#">  </a> </div>
         <div class="media-body">
-          <h4 class="media-heading">Media heading</h4>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. </div>
+          <h4 class="media-heading">Katie Says</h4>
+          My bike was stolen a couple weeks ago, and thanks to CrowdCop, Public Safety has found the bike! </div>
       </div>
       <div class="media">
-        <div class="media-left"> <a href="#"> <img class="media-object" src="img/35X35.gif" alt="..."> </a> </div>
+        <div class="media-left"> <a href="#">  </a> </div>
         <div class="media-body">
-          <h4 class="media-heading">Media heading</h4>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. </div>
+          <h4 class="media-heading"></h4>
+          </div>
       </div>
     </div>
     <div class="col-lg-4 col-sm-12">
@@ -258,9 +294,9 @@
           <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
             <div>
               <ul class="list-unstyled">
-              	<li> <a>Homepage</a> </li>
-                <li> <a>Submit a Tip</a> </li>
-                <li> <a>Suggest a Campaign</a> </li>
+              	<li> <a href="/index.html">Homepage </a> </li>
+                <li> <a href="/Tip.php">Submit a Tip</a></li>
+                <li> <a href="/SuggestaCampaign.php">Suggest a Campaign</a> </li>
                 <li> <a>Dashboard</a> </li>
                 <li> <a>Profile</a> </li>
               </ul>
