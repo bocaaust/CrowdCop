@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>profile</title>
+<style type="text/css">
+@import url("css/bootstrap.css");
+@import url("css/Profile_Style.css");
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".btn-pref .btn").click(function () {
+			$(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+			// $(".tab").addClass("active"); // instead of this do the below 
+			$(this).removeClass("btn-default").addClass("btn-primary");   
+		});
+	});
+</script>
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1502789433375993";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<nav>
+  <div class="container"> 
+    
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="/index.html">CrowdCop</a></div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/Tip.php">Submit a Tip <span class="sr-only">(current)</span></a> </li>
+        <li><a href="#">Dashboard</a> </li>
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My CrowdCop<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/profile.html">Profile</a> </li>
+            <li><a href="#">History</a> </li>
+            <li><a href="#">Nearby Campaigns</a> </li>
+            <li class="divider"></li>
+            <li><a href="/SuggestaCampaign.php">Suggest a Campaign</a> </li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right hidden-sm">
+        <li><a href="#">Random</a> </li>
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Creators</a> </li>
+            <li><a href="#">Press</a> </li>
+            <li class="divider"></li>
+            <li><a href="#">RCOS</a> </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+  <!-- /.container-fluid --> 
+</nav>
+<div class = "container well">
+	<div class="col-lg-12 col-sm-12">
+    <div class="card hovercard">
+        <div class="card-background">
+          <img class="card-bkimg" alt="" src="https://scontent-lga3-1.xx.fbcdn.net/hprofile-xap1/v/t1.0-1/p320x320/12341036_1501783263450006_2048940113394308522_n.jpg?oh=8fe5a3c7a8a16776a753d0426a4ee939&oe=5767B15F">
+            <!-- http://lorempixel.com/850/280/people/9/ -->
+        </div>
+      <div class="useravatar">
+            <img alt="Profile Image" src="https://scontent-lga3-1.xx.fbcdn.net/hprofile-xap1/v/t1.0-1/p320x320/12341036_1501783263450006_2048940113394308522_n.jpg?oh=8fe5a3c7a8a16776a753d0426a4ee939&oe=5767B15F">
+        </div>
+        <div class="card-info"><span class="card-title">Firstname Lastname</span></div>
+    </div>
+    <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+            <button type="button" id="following" class="btn btn-primary" href="#tab1" data-toggle="tab"><img class="img glyphicon-align-center" src="img/follow_icon_40X40.fw.png"></img>
+                <div class="hidden-xs">Following</div>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="supported" class="btn btn-default" href="#tab2" data-toggle="tab"><img class="img glyphicon-align-center" src="img/icon_heart_40X40.png"></img>
+                <div class="hidden-xs">Supported</div>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="about" class="btn btn-default" href="#tab3" data-toggle="tab"><img class="img glyphicon-align-center" src="img/person_icon_40X40.fw.png"></img>
+            <div class="hidden-xs">About</div>
+            </button>
+        </div>
+    </div>
+
+        <div class="well">
+      <div class="tab-content">
+        <div class="tab-pane fade in active" id="tab1">
+          <div class="container">
+  <div class="row text-center">
+    <div class="col-sm-10">
+      <div class="thumbnail"> 
+        <div class="caption">
+          <h3>Bike Theft</h3>
+          <p>Bikes have been repeatedly stolen in the Troy area, including the RPI campus. The thefts were reported near student housing including Burdett Avenue Residence Hall (BARH).</p>
+          <p><a href="BikeTheft_testpage.html" class="btn btn-primary" role="button">Crowd Fund</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-10">
+     <div class="thumbnail"> 
+        <div class="caption">
+          <h3>Help Find Sparky</h3>
+          <p>Sparky the adorable cat has gone missing. Please help us find her.</p>
+          <p><a href="#" class="btn btn-primary" role="button">  Crowd Fund</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-10">
+     <div class="thumbnail"> 
+        <div class="caption">
+          <h3>Batman Spotted</h3>
+          <p>A masked vigilante is beating up civilians looking for the joker</p>
+          <p><a href="#" class="btn btn-primary" role="button"> Crowd Fund</a></p>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+  </div>
+        </div>
+        <div class="tab-pane fade in" id="tab2">
+          <h3>This is tab 2</h3>
+        </div>
+        <div class="tab-pane fade in" id="tab3">
+        <h2>About</h2>
+          <ul class="list-group">
+  <li class="list-group-item"><h4>Name</h4> Firstname Lastname</li>
+  <li class="list-group-item"><h4>User Since</h4>January 1st, 2016</li>
+  <li class="list-group-item"><h4>Jurisdiction</h4> Rensselaer Polytechnic Institute</li>
+</ul>
+
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    Upload a Profile Image:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
+</form>
+
+        </div>
+      </div>
+    </div>
+    
+</div>
+
+</div>
+
+            
+ <hr>
+  <div class="container well">
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-7">
+        <div class="row">
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+            <div>
+              <ul class="list-unstyled">
+              	<li> <a href="/index.html">Homepage </a> </li>
+                <li> <a href="/Tip.php">Submit a Tip</a></li>
+                <li> <a href="/SuggestaCampaign.php">Suggest a Campaign</a> </li>
+                <li> <a>Dashboard</a> </li>
+                <li> <a>Profile</a> </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4  col-xs-6">
+            <div>
+              <ul class="list-unstyled">
+                <li> <a>History</a> </li>
+                <li> <a>Nearby Campaigns</a> </li>
+                <li> <a>Creators</a> </li>
+                <li> <a>RCOS</a> </li>
+                <li> <a></a> </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+            <div>
+              <ul class="list-unstyled">
+                <li> <a></a> </li>
+                <li> <a></a> </li>
+                <li> <a></a> </li>
+                <li> <a></a> </li>
+                <li> <a></a> </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-5"> 
+        <address>
+        <strong>CrowdCop</strong><br>
+        A socially adaptive approach to crowdfunding crime tips.<br>
+      </address>
+        <address>
+        <strong>Interested in Contributing?</strong><br>
+        <a href="mailto:#">bocaaust@gmail.com</a>
+        </address>
+        </div>
+    </div>
+  </div>
+
+<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <a href="http://www.apache.org/licenses/LICENSE-2.0"><p>Open Source <script>document.write(new Date().getFullYear())</script></p> </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="js/jquery-1.11.2.min.js"></script> 
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
