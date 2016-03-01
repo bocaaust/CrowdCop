@@ -20,4 +20,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^campaign', views.campaign, name='campaign'),
+    url(r'^profile', views.profile, name='profile'),
 ]
