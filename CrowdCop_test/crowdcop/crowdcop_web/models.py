@@ -10,3 +10,10 @@ class Campaign(models.Model):
 	campaign_description = models.TextField()
 	amount_crowdfunded = models.DecimalField(max_digits=5, decimal_places=2)
 	campaign_image = models.ImageField()
+
+class User(models.Model):
+	firstname = models.CharField(max_length=20)
+	lastname = models.CharField(max_length=20)
+
+class Contribution(models.Model):
+	
