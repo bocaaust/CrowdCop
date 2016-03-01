@@ -102,7 +102,7 @@
     <tbody>
       {%for contribution in user.funded%}
       <tr>
-            <th scope="row">{{contribution.number}}</th>
+            <th scope="row">{{forloop.counter}}</th>
             <td>$10.00</td>
             <td>{{contribution.title}}</td>
             <td>{{contribution.datefunded}}</td>

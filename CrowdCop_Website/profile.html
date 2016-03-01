@@ -84,7 +84,7 @@
       <div class="useravatar">
             <img alt="Profile Image" src="https://scontent-lga3-1.xx.fbcdn.net/hprofile-xap1/v/t1.0-1/p320x320/12341036_1501783263450006_2048940113394308522_n.jpg?oh=8fe5a3c7a8a16776a753d0426a4ee939&oe=5767B15F">
         </div>
-        <div class="card-info"><span class="card-title">Firstname Lastname</span></div>
+        <div class="card-info"><span class="card-title">{{user.firstname}} {{user.lastname}}</span></div>
     </div>
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
       <div class="btn-group" role="group">
@@ -109,7 +109,18 @@
         <div class="tab-pane fade in active" id="tab1">
           <div class="container">
   <div class="row text-center">
-    <div class="col-sm-10 container-fluid">
+    {%for campaign in user.following%}
+      <div class="col-sm-10 container-fluid">
+      <div class="thumbnail"> 
+        <div class="caption">
+          <h3>{{campaign.title}}</h3>
+          <p>{{campaign.description}}</p>
+          <p><a href="BikeTheft_testpage.html" class="btn btn-primary" role="button">Crowd Fund</a></p>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+    <!--<div class="col-sm-10 container-fluid">
       <div class="thumbnail"> 
         <div class="caption">
           <h3>Bike Theft</h3>
@@ -135,7 +146,7 @@
           <p><a href="#" class="btn btn-primary" role="button"> Crowd Fund</a></p>
         </div>
       </div>
-    </div>
+    </div>-->
     </div>
     </div>
     </div>
@@ -172,9 +183,9 @@
         <div class="tab-pane fade in" id="tab3">
         <h2>About</h2>
           <ul class="list-group">
-  <li class="list-group-item"><h4>Name</h4> Firstname Lastname</li>
-  <li class="list-group-item"><h4>User Since</h4>January 1st, 2016</li>
-  <li class="list-group-item"><h4>Jurisdiction</h4> Rensselaer Polytechnic Institute</li>
+  <li class="list-group-item"><h4>Name</h4> {{user.firstname}} {{user.lastname}}</li>
+  <li class="list-group-item"><h4>User Since</h4>{{user.joindate}}</li>
+  <li class="list-group-item"><h4>Jurisdiction</h4>{{user.jurisdiction}}</li>
 </ul>
 
 <form action="upload.php" method="post" enctype="multipart/form-data">
