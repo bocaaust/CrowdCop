@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{%block title%}{%endblock}</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="css/bootstrap.css">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<nav>
+  <div class="container"> 
+    
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button"  class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="/index.html">CrowdCop</a></div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/Tip.php">Submit a Tip <span class="sr-only">(current)</span></a> </li>
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My CrowdCop<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/profile.html">Profile</a> </li>
+            <li><a href="#">History</a> </li>
+            <li><a href="#">Nearby Campaigns</a> </li>
+            <li class="divider"></li>
+            <li><a href="/SuggestaCampaign.php">Suggest a Campaign</a> </li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right hidden-sm">
+        <li><a href="#">Random</a> </li>
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/creator.html">Creators</a> </li>
+            <li><a href="/faq.html">FAQ</a> </li>
+            <li class="divider"></li>
+            <li><a href="https://rcos.io">RCOS</a> </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+  <!-- /.container-fluid --> 
+</nav>
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div id="carousel1" class="carousel slide">
+          <ol class="carousel-indicators">
+            <li data-target="#carousel1" data-slide-to="0" class="active"> </li>
+            <li data-target="#carousel1" data-slide-to="1" class=""> </li>
+          </ol>
+          <div class="carousel-inner">
+            
+            <div class="item active"> <img class="img-responsive" src="img/1920x500.fw.png" alt="thumb">
+         		</div>
+            <div class="item"> <img class="img-responsive" src="img/1920x500-2.fw.png" alt="thumb">
+            </div>
+          </div>
+          <a class="left carousel-control" href="#carousel1" data-slide="prev"><span class="icon-prev"></span></a> <a class="right carousel-control" href="#carousel1" data-slide="next"><span class="icon-next"></span></a></div>
+      </div>
+</div>
+    <hr>
+  </div>
+<div class="container">
+<div class="page-header">
+    <h1>FAQ</h1>
+</div>
+<ul class="list-group">
+  <li class="list-group-item"><h4>What is CrowdCop?</h4> We are a crowdfunding platform for solving and preventing crimes. We are aiming to be the first socialy dynamic way for the public to get involved in the crime solving process.</li>
+  <li class="list-group-item"><h4>Campaigns?</h4> A campaign relates to either a general or specific crime that people can crowdfund. At the end of the month the tips that are approved by law enforcement will receive an equal portion of the funds raised.</li>
+  <li class="list-group-item"><h4>Socially Dynamic?</h4> This means that the crimes the public feels more strongly about will raise more funds, meaning that is easier for law enforcement to solve those crimes because the tips relating to them are more valuable and will likely come in with a greater frequency.</li>
+  <li class="list-group-item"><h4>How Can I Help?</h4> We are an opensource initiative and are always looking for people who can contribute to our repository. Check it out <a href="https://github.com/bocaaust/CrowdCop">here</a>.</li>
+  <li class="list-group-item"><h4>Are Payments Secure?</h4> We currently collect payments through Paypal, a company known for it security and ease of use.</li>
+  <li class="list-group-item"><h4>Is CrowdCop for Emergencies?</h4> Absolutely not, CrowdCop is meant for tips for non-emergency threats only. You should always call 911 in an emergency situation</li>
+  <li class="list-group-item"><h4>Are Tips Secure?</h4> Tips provided to CrowdCop are anonymous. This includes your paypal id which is assigned a randome number which law enforcement will see in place of your username.</li>
+  <li class="list-group-item"><h4>When Can I Start Using CrowdCop?</h4> We are aiming for a test of the service in April of 2016 with the help of RPI's Public Safety Department.</li>
+  <li class="list-group-item"><h4>Press</h4> Part of our strategy for CrowdCop is being a solution that the press can present when reporting on crimes. If you would like more information about the service please contact <a href="mailto:#">bocaaust@gmail.com</a></li>
+</ul>
+</div>
+</div>
+<hr>
+  <div class="container well">
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-7">
+        <div class="row">
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+            <div>
+              <ul class="list-unstyled">
+                <li> <a href="/index.html">Homepage</a> </li>
+                <li> <a href="/Tip.php">Submit a Tip</a> </li>
+                <li> <a>Suggest a Campaign</a> </li>
+                <li> <a href="/profile.html">Profile</a> </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4  col-xs-6">
+            <div>
+              <ul class="list-unstyled">
+                <li> <a>History</a> </li>
+                <li> <a>Nearby Campaigns</a> </li>
+                <li> <a href="/creator.html">Creators</a> </li>
+                <li> <a href="https://rcos.io">RCOS</a> </li>
+                <li> <a href="/faq.html">FAQ</a> </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+            <div>
+              <ul class="list-unstyled">
+                <li> <a></a> </li>
+                <li> <a></a> </li>
+                <li> <a></a> </li>
+                <li> <a></a> </li>
+                <li> <a></a> </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-5"> 
+        <address>
+        <strong>CrowdCop</strong><br>
+        A socially adaptive approach to crowdfunding crime tips.<br>
+      </address>
+        <address>
+        <strong>Interested in Contributing?</strong><br>
+        <a href="mailto:#">bocaaust@gmail.com</a>
+        </address>
+        </div>
+    </div>
+  </div>
+
+<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <a href="http://www.apache.org/licenses/LICENSE-2.0"><p>Open Source <script>document.write(new Date().getFullYear())</script></p> </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="js/jquery-1.11.2.min.js"></script> 
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
