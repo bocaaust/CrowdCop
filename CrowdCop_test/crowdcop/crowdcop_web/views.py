@@ -12,4 +12,5 @@ def campaign(request):
 def profile(request):
 	return render(request, 'crowdcop_web/profile_template.html')
 
-			
+def error_404(request):
+	return render(request, 'crowdcop_web/404_template.html')
