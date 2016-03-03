@@ -30,9 +30,9 @@ STATIC_ROOT = "/crowdcop/static"
 SECRET_KEY = 'g2*-8kdf0$vfak@r!c%v!bvnbx8cw_ez(!5$@@+70hl0-#b%fj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'crowd-cop.com']
 
 
 # Application definition
