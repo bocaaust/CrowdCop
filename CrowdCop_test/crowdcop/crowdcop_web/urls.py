@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^campaign', views.campaign, name='campaign'),
     url(r'^profile', views.profile, name='profile'),
     url(r'^404', views.error_404, name='404'),
+    url(r'^creators', views.creators, name='creators'),
 
 ]

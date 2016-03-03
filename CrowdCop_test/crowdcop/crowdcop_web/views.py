@@ -14,3 +14,6 @@ def profile(request):
 
 def error_404(request):
 	return render(request, 'crowdcop_web/404_template.html')
+
+def creators(request):
+	return render(request, 'crowdcop_web/creator_template.html')
