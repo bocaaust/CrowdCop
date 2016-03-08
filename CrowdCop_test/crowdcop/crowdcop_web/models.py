@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -9,13 +9,7 @@ class Campaign(models.Model):
 	start_date = models.DateTimeField('date published')
 	campaign_description = models.TextField()
 	amount_crowdfunded = models.DecimalField(max_digits=5, decimal_places=2)
-	campaign_image = models.ImageField()
-
-class User(models.Model):
-	firstname = models.CharField(max_length=20)
-	lastname = models.CharField(max_length=20)
-	joindate = models.DateTimeField('date joined')
-	
+	campaign_image = models.ImageField()	
 
 class Contribution(models.Model):
 	
