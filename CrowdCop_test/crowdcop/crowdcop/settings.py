@@ -27,7 +27,7 @@ STATIC_ROOT = "/crowdcop/static"
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'g2*-8kdf0$vfak@r!c%v!bvnbx8cw_ez(!5$@@+70hl0-#b%fj'
+SECRET_KEY = 'REDACTED'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False

@@ -59,7 +59,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button"  class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="/index.html">CrowdCop</a></div>
+      <a class="navbar-brand" href="{%url 'index'%}">CrowdCop</a></div>
     
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse">
@@ -68,7 +68,7 @@
         <li></li>
         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My CrowdCop<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Profile</a> </li>
+            <li><a href="{%url 'profile'%}">Profile</a> </li>
             <li><a href="#">History</a> </li>
             <li><a href="#">Nearby Campaigns</a> </li>
             <li class="divider"></li>
@@ -86,10 +86,10 @@
         <li><a href="#">Random</a> </li>
         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Creators</a> </li>
+            <li><a href="{%url 'creators'%}">Creators</a> </li>
             <li><a href="#">Press</a> </li>
             <li class="divider"></li>
-            <li><a href="#">RCOS</a> </li>
+            <li><a href="http://rcos.io">RCOS</a> </li>
           </ul>
         </li>
       </ul>
@@ -110,10 +110,10 @@
           <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
             <div>
               <ul class="list-unstyled">
-              	<li> <a>Homepage</a> </li>
-                <li> <a>Submit a Tip</a> </li>
+              	<li> <a href = "{% url 'index' %}">Homepage</a> </li>
+                <li> <a href = "http://www.crowd-cop.com/Tip.php">Submit a Tip</a> </li>
                 <li> <a>Suggest a Campaign</a> </li>
-                <li> <a>Profile</a> </li>
+                <li> <a href ="{% url 'profile'%}">Profile</a> </li>
               </ul>
             </div>
           </div>
@@ -122,8 +122,8 @@
               <ul class="list-unstyled">
                 <li> <a>History</a> </li>
                 <li> <a>Nearby Campaigns</a> </li>
-                <li> <a>Creators</a> </li>
-                <li> <a>RCOS</a> </li>
+                <li> <a href = "{% url 'creators'%}">Creators</a> </li>
+                <li> <a href="http://rcos.io">RCOS</a> </li>
                 <li> <a></a> </li>
               </ul>
             </div>
