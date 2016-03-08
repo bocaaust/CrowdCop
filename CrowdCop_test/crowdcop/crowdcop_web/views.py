@@ -17,3 +17,6 @@ def error_404(request):
 
 def creators(request):
 	return render(request, 'crowdcop_web/creator_template.html')
+
+def faq(request):
+	return render(request, 'crowdcop_web/faq_template.html')
