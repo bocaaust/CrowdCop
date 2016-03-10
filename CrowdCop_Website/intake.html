@@ -99,7 +99,36 @@
 </div>
 
  <div class="page-header">
-    <h1> <small>Sign in Below</small></h1>
+   <h1> <small>Sign Up</small></h1>
+ </div>
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail2">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail3">Confirm Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+    </div>
+    <script>
+	$scope.add = function() {
+  if ($scope.exampleInputEmail3 != $scope.exampleInputEmail2) {
+    $scope.IsMatch=true;
+    return false;
+  }
+  $scope.IsMatch=false;
+}
+	</script>
+    <button type="submit" ng-click="add()" ng-disabled="exampleInputEmail2 != exampleInputEmail3" class="btn btn-default">Sign Up</button>
+    <span ng-show="IsMatch">Emails have to match!</span>
+</form>
+
+<div class="page-header">
+  <h1> <small>Sign in</small></h1>
 </div>
 <form>
     <div class="form-group">
@@ -108,20 +137,11 @@
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
     </div>
-    <div class="form-group">
-        <label for="exampleInputFile">File input</label>
-        <input type="file" id="exampleInputFile">
-        <p class="help-block">Example block-level help text here.</p>
-    </div>
-    <div class="checkbox">
-        <label>
-            <input type="checkbox">Check me out
-        </label>
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-default">Submit </button>
 </form>
+
 {%endblock%}
 </div>
 
