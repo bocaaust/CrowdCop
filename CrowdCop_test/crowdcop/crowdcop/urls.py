@@ -27,4 +27,4 @@ handler404 = 'crowdcop_web.views.error_404'
 urlpatterns = [
   url(r'^admin/', admin.site.urls),
   url(r'^crowdcop_web/',include('crowdcop_web.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

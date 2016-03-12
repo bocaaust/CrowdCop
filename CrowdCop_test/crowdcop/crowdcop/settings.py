@@ -22,7 +22,14 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
 
-STATIC_ROOT = "/crowdcop/static"
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+MEDIA_URL='/media/'
+
+STATIC_URL='/static/'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
@@ -30,7 +37,7 @@ STATIC_ROOT = "/crowdcop/static"
 SECRET_KEY = 'REDACTED'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'crowd-cop.com']
 
@@ -38,6 +45,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'crowd-cop.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'crowdcop_web.apps.CrowdcopWebConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
