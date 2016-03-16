@@ -146,13 +146,19 @@
   <div class="row">
     <div class="col-lg-4 col-md-6">
       <div class="media-object-default">
-        <div class="media">
-          <div class="media-left"> <a href="#"> <img class="media-object" width = "100px" 
-          src="http://crowd-cop.com/img/graffiti.jpg" alt="placeholder image"> </a> </div>
-          <div class="media-body">
-            <h4 class="media-heading">Product</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, vitae doloremque voluptatum doloribus neque assumenda velit sapiente quas aliquam ratione. Sed possimus corporis dolorum optio eaque in asperiores soluta expedita! </div>
-        </div>
+      {%for campaign in latest_campaigns%}
+        {%if forloop.counter < 3%}
+           <div class="media">
+              <div class="media-left"> <a href="/crowdcop_web/campaign/{{campaign.id}}"> <img class="media-object" width = "100px" 
+              src="{{campaign.campaign_image_url}}" alt="placeholder image"> </a> </div>
+              <div class="media-body">
+                <h4 class="media-heading">{{campaign.campaign_title}}</h4>
+                {{campaign.campaign_description}} </div>
+            </div>          
+        {%endif%}
+
+      {%endfor%}
+       
         <div class="media">
           <div class="media-left"> <a href="#"> <img class="media-object" width = "100px" src="http://crowd-cop.com/img/Froot-Loops-Cereal-Bowl.jpg" alt="placeholder image"> </a> </div>
           <div class="media-body">
