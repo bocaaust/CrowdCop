@@ -13,6 +13,5 @@ class Campaign(models.Model):
 	campaign_image = models.ImageField()	
 	#"Hacky" fix for images not loading - add a field for url
 	campaign_image_url = models.URLField()
-	num_tips=models.IntegerField()
-#class Contribution(models.Model):
+	#class Contribution(models.Model):
 	
