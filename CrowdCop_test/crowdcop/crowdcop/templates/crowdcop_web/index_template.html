@@ -147,7 +147,7 @@
     <div class="col-lg-4 col-md-6">
       <div class="media-object-default">
       {%for campaign in latest_campaigns%}
-        {%if forloop.counter < 3%}
+        {%if forloop.counter < 4%}
            <div class="media">
               <div class="media-left"> <a href="/crowdcop_web/campaign/{{campaign.id}}"> <img class="media-object" width = "100px" 
               src="{{campaign.campaign_image_url}}" alt="placeholder image"> </a> </div>
@@ -158,65 +158,39 @@
         {%endif%}
 
       {%endfor%}
-       
-        <div class="media">
-          <div class="media-left"> <a href="#"> <img class="media-object" width = "100px" src="http://crowd-cop.com/img/Froot-Loops-Cereal-Bowl.jpg" alt="placeholder image"> </a> </div>
-          <div class="media-body">
-            <h4 class="media-heading">Product</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, quasi doloribus non repellendus quae aperiam. Quos, eligendi itaque soluta ut dignissimos reprehenderit commodi laboriosam quis atque minus enim magnam delectus.</div>
-        </div>
-        <div class="media">
-          <div class="media-left"> <a href="#"> <img class="media-object" width = "100px" src="http://crowd-cop.com/img/corgi.jpg" alt="placeholder image"></a></div>
-          <div class="media-body">
-            <h4 class="media-heading">Product</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, repellendus, ad, adipisci neque earum culpa magnam veritatis ipsum dolores odio laboriosam sed veniam accusamus! Architecto, provident nulla recusandae repellendus illo!</div>
-        </div>
       </div>
     </div>
     <hr class="hidden-md hidden-lg">
     <div class="col-lg-4 col-md-6">
       <div class="media-object-default">
-        <div class="media">
-          <div class="media-left"> <a href="#"> <img class="media-object" width = "100px" src="http://crowd-cop.com/img/tp.jpg" alt="placeholder image"></a></div>
-          <div class="media-body">
-            <h4 class="media-heading">Product</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, eos, et in quam laboriosam ipsum laudantium laborum provident nihil modi reprehenderit tempora voluptatum quasi non libero quaerat vel. Assumenda, officiis?</div>
-        </div>
-        <div class="media">
-          <div class="media-left"> <a href="#"> <img class="media-object" width = "100px" src="http://crowd-cop.com/img/tips.JPG" alt="placeholder image"></a></div>
-          <div class="media-body">
-            <h4 class="media-heading">Product</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, minus, praesentium dignissimos non provident et consectetur illo expedita aliquam laboriosam esse incidunt deleniti accusantium debitis voluptas. Non vitae quos dolorem.</div>
-        </div>
-        <div class="media">
-          <div class="media-left"> <a href="#"> <img class="media-object" width = "100px" src="http://crowd-cop.com/img/rat.jpg" alt="placeholder image"></a></div>
-          <div class="media-body">
-            <h4 class="media-heading">Product</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, ducimus quidem aliquam voluptate quas impedit modi neque quasi deleniti dicta. Dolore, provident, unde voluptas dicta fugit odit maxime eius minus!</div>
-        </div>
+      {%for campaign in latest_campaigns%}
+        {%if forloop.counter >= 4 and forloop.counter < 7%}
+           <div class="media">
+              <div class="media-left"> <a href="/crowdcop_web/campaign/{{campaign.id}}"> <img class="media-object" width = "100px" 
+              src="{{campaign.campaign_image_url}}" alt="placeholder image"> </a> </div>
+              <div class="media-body">
+                <h4 class="media-heading">{{campaign.campaign_title}}</h4>
+                {{campaign.campaign_description}} </div>
+            </div>          
+        {%endif%}
+
+      {%endfor%}
       </div>
     </div>
     <hr class="hidden-lg">
     <div class="col-lg-4 col-md-12 hidden-md">
       <div class="media-object-default">
-        <div class="media">
-          <div class="media-left"> <a href="#"> <img class="media-object" src="http://crowd-cop.com/img/100X125.gif" alt="placeholder image"></a></div>
-          <div class="media-body">
-            <h4 class="media-heading">Media heading 1</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorum reprehenderit vitae omnis. Quidem, recusandae, magni ut perspiciatis nobis consequuntur ullam molestias molestiae obcaecati ea labore aspernatur modi. Impedit, fugit!</div>
-        </div>
-        <div class="media">
-          <div class="media-left"> <a href="#"> <img class="media-object" src="http://crowd-cop.com/img/100X125.gif" alt="placeholder image"></a></div>
-          <div class="media-body">
-            <h4 class="media-heading">Media heading 2</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, libero, ea itaque atque vero quidem esse optio minus tenetur dolorem delectus nemo fugit deserunt quibusdam veritatis assumenda obcaecati praesentium omnis!</div>
-        </div>
-        <div class="media">
-          <div class="media-left"> <a href="#"> <img class="media-object" src="http://crowd-cop.com/img/100X125.gif" alt="placeholder image"></a></div>
-          <div class="media-body">
-            <h4 class="media-heading">Media heading 2</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, cumque, ad voluptatibus vel perspiciatis reprehenderit magni in recusandae voluptatum iusto commodi laudantium veritatis esse labore nisi error tempora debitis impedit.</div>
-        </div>
+        {%for campaign in latest_campaigns%}
+          {%if forloop.counter >= 7 and forloop.counter < 10%}
+             <div class="media">
+                <div class="media-left"> <a href="/crowdcop_web/campaign/{{campaign.id}}"> <img class="media-object" width = "100px" 
+                src="{{campaign.campaign_image_url}}" alt="placeholder image"> </a> </div>
+                <div class="media-body">
+                  <h4 class="media-heading">{{campaign.campaign_title}}</h4>
+                  {{campaign.campaign_description}} </div>
+              </div>          
+          {%endif%}
+        {%endfor%}
       </div>
     </div>
   </div>
