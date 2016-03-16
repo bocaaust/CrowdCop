@@ -11,6 +11,8 @@ class Campaign(models.Model):
 	num_tips = models.IntegerField()
 	amount_crowdfunded = models.DecimalField(max_digits=5, decimal_places=2)
 	campaign_image = models.ImageField()	
-
+	#"Hacky" fix for images not loading - add a field for url
+	campaign_image_url = models.URLField()
+	num_tips=models.IntegerField()
 #class Contribution(models.Model):
 	
