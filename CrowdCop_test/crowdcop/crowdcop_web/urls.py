@@ -27,5 +27,5 @@ urlpatterns = [
     url(r'^404', views.error_404, name='404'),
     url(r'^creators', views.creators, name='creators'),
     url(r'^faq', views.faq, name='faq'),
-    #url(r'^trending/(?P<page>[0-9]+)/$', views.index, name='index'),
+    url(r'^trending/(?P<page>[0-9]+)/$', views.trending, name='trending'),
 ]

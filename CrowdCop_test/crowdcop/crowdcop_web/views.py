@@ -7,7 +7,7 @@ from .models import Campaign
 def index(request):
 	latest_campaigns= Campaign.objects.order_by('-start_date')[:9]
 	trending_campaigns=Campaign.objects.order_by('amount_crowdfunded')[:6]
-	return render(request, 'crowdcop_web/index_template.html',{'latest_campaigns': latest_campaigns, 'trending_campaigns': trending_campaigns})
+	return render(request, 'crowdcop_web/index_template.html',{'latest_campaigns': latest_campaigns, 'trending_campaigns': trending_campaigns, 'page':1,})
 
 def campaign(request, campaign_id):
 	campaign = get_object_or_404(Campaign, pk=campaign_id)
@@ -25,3 +25,10 @@ def creators(request):
 
 def faq(request):
 	return render(request, 'crowdcop_web/faq_template.html')
+
+def trending(request, page):
+	start=6*(int(page)-1)
+	end=6*int(page)
+	latest_campaigns= Campaign.objects.order_by('-start_date')[:9]
+	trending_campaigns=Campaign.objects.order_by('amount_crowdfunded')[start:end]
+	return render(request, 'crowdcop_web/index_template.html',{'latest_campaigns': latest_campaigns, 'trending_campaigns': trending_campaigns, 'page':page,})
