@@ -6,7 +6,8 @@ from .models import Campaign
 # Create your views here.
 def index(request):
 	latest_campaigns= Campaign.objects.order_by('-start_date')[:9]
-	return render(request, 'crowdcop_web/index_template.html',{'latest_campaigns': latest_campaigns})
+	trending_campaigns=Campaign.objects.order_by('amount_crowdfunded')[:6]
+	return render(request, 'crowdcop_web/index_template.html',{'latest_campaigns': latest_campaigns, 'trending_campaigns': trending_campaigns})
 
 def campaign(request, campaign_id):
 	campaign = get_object_or_404(Campaign, pk=campaign_id)
