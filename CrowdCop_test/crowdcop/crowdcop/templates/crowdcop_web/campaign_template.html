@@ -1,4 +1,8 @@
+
 {%extends "crowdcop_web/main_template.html"%}
+
+{% load mathfilters %}
+
 {%block title%}{{campaign.campaign_title}}{%endblock%}
 
 {%block content%}
@@ -61,16 +65,16 @@
 <div class="col-lg-1"></div>
   <div class="row">
     <div class="col-lg-5 col-md-6 col-sm-6">
-      <h1> 20+</h1>
-      <p>There is a significant amount of cases in the area. This is the number of cases in 2014 according to the public records of Troy Public Safety</p>
+      <h1>{{campaign.stat_1}}</h1>
+      <p>{{campaign.stat_1_description}}</p>
     </div>
     <div class="col-lg-5 col-md-6 col-sm-6">
-      <h1>308</h1>
-      <p>Average annual operating cost of a bicycle according to the League of American Bicyclists </p>
+      <h1>{{campaign.stat_2}}</h1>
+      <p>{{campaign.stat_2_description}}</p>
     </div>
     <div class="col-lg-12">
-      <h1> 4.5</h1>
-      <p>The average number of miles walked in a week by a student who doesn't have a bike</p>
+    <h1>{{campaign.stat_3}}</h1>
+      <p>{{campaign.stat_3_description}}</p>
     </div>
     
   </div>
@@ -82,7 +86,7 @@
     <div class="row text-center">
     <p>Disclaimer: Only tips approved by law enforcement will be compensated</p>
       <div class="col-lg-12">
-      <h1 class="text-center">Tip Value: $0.00</h1>
+      <h1 class="text-center">Tip Value: {%if campaign.num_tips == 0%}$0.00{%else%}${{campaign.amount_crowdfunded|div:campaign.num_tips}}{%endif%}</h1>
       <hr>
         <h3> {{campaign.num_tips}} Approved Tips </h3>
         <h3> ${{campaign.amount_crowdfunded}} Total CrowdFunded</h3>

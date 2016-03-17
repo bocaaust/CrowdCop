@@ -44,6 +44,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'crowd-cop.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'mathfilters',
     'crowdcop_web.apps.CrowdcopWebConfig',
     'django.contrib.admin',
     'django.contrib.auth',

@@ -14,4 +14,9 @@ class Campaign(models.Model):
 	#"Hacky" fix for images not loading - add a field for url
 	campaign_image_url = models.URLField()
 	#class Contribution(models.Model):
-	
+	stat_1=models.CharField(max_length=25)
+	stat_1_description=models.TextField()
+	stat_2=models.CharField(max_length=25)
+	stat_2_description=models.TextField()
+	stat_3=models.CharField(max_length=25)
+	stat_3_description=models.TextField()
