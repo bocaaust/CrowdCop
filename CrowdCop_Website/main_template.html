@@ -34,8 +34,8 @@
     <![endif]-->
 </head>
 <body>
-<nav>
-  <div class="container"> 
+<nav class="navbar navbar-default">
+  <div class="container-fluid"> 
     
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -63,7 +63,6 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right hidden-sm">
-        <li><a href="#">Random</a> </li>
         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/creator.html">Creators</a> </li>
@@ -78,9 +77,10 @@
   </div>
   <!-- /.container-fluid --> 
 </nav>
+
 <div id = "content">
-{%block content %}
-{%endblock%}
+  {%block content %}
+  {%endblock%}
 </div>
 <!--<div class="container">
     <div class="row">
