@@ -36,7 +36,6 @@ def trending(request, page):
 	return render(request, 'crowdcop_web/index_template.html',{'latest_campaigns': latest_campaigns, 'trending_campaigns': trending_campaigns, 'page':page,})
 
 def register(request):
-	context = RequestContext(request)
 	registered= False
 
 	if request.method == 'POST':
@@ -60,9 +59,8 @@ def register(request):
 
 	else:
 		user_form = UserForm()
-		profile_form = UserProfileForm()
+		profile_form = CrowdcopUserForm()
 
-	return render_to_response(
+	return render(request,
 			'crowdcop_web/register.html',
-			{'user_form': user_form, 'profile_form': profile_form, 'registered': registered},
-			context)
+			{'user_form': user_form, 'profile_form': profile_form, 'registered': registered})

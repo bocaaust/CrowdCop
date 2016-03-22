@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^creators', views.creators, name='creators'),
     url(r'^faq', views.faq, name='faq'),
     url(r'^trending/(?P<page>[0-9]+)/$', views.trending, name='trending'),
+    url(r'^register/$', views.register, name='register'),
 ]
