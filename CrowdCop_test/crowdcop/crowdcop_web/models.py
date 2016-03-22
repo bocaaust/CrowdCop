@@ -20,3 +20,20 @@ class Campaign(models.Model):
 	stat_2_description=models.TextField()
 	stat_3=models.CharField(max_length=25)
 	stat_3_description=models.TextField()
+
+class CrowdcopUser(models.Model):
+	user=models.OneToOneField(User, on_delete=models.CASCADE)
+	institution=models.CharField(max_length=100)
+	def get_contributions(self):
+		return Contribution.select().where(Contribution.user==self.user)
+
+class Contribution(models.Model):
+	user=models.ForeignKey(
+		User,
+		related_name='contributions'
+		)
+	amount = models.DecimalField(max_digits=5, decimal_places=2)
+	campaign = models.ForeignKey(
+		Campaign,
+		related_name='contributions'
+		)
