@@ -1,8 +1,11 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import Campaign
 from .forms import UserForm, CrowdcopUserForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def index(request):
@@ -64,3 +67,30 @@ def register(request):
 	return render(request,
 			'crowdcop_web/register.html',
 			{'user_form': user_form, 'profile_form': profile_form, 'registered': registered})
+
+def user_login(request):
+	if request.method == 'POST':
+		username=request.POST['username']
+		password=request.POST['password']
+
+		user=authenticate(username=username,password=password)
+
+		if user:
+			if user.is_active:
+				login(request,user)
+				return HttpResponseRedirect('/crowdcop_web/')
+			else:
+				return HttpResponse("Your CrowdCop account has been disabled.")
+		else:
+			#Bad login
+			return HttpResponse("Invalid username or password.")
+	else:
+		return render(request,'crowdcop_web/login_template.html', {})
+
+@login_required
+def user_logout(request):
+	# Since we know the user is logged in, we can now just log them out.
+	logout(request)
+
+	# Take the user back to the homepage.
+	return HttpResponseRedirect('/crowdcop_web/')

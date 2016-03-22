@@ -29,4 +29,7 @@ urlpatterns = [
     url(r'^faq', views.faq, name='faq'),
     url(r'^trending/(?P<page>[0-9]+)/$', views.trending, name='trending'),
     url(r'^register/$', views.register, name='register'),
+	url(r'^login/$', views.user_login, name='login'),
+	url(r'^logout/$', views.user_logout, name='logout'),
+
 ]
