@@ -81,10 +81,12 @@
 <div id = "content">
 
 {%block content%}
+<script src="js/jquery-1.11.2.min.js"></script>
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <div class="jumbotron" style = "background-image: url(/img/CrowdCop_Logo_Long.jpg);
+      <div class="jumbotron" style = "background-color: #66ffff;
+      background-image: url(img/CrowdCop_Logo_Long.png);
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -118,16 +120,16 @@
         <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
     </div>
     <script>
-	$scope.add = function() {
-  if ($scope.exampleInputEmail3 != $scope.exampleInputEmail2) {
-    $scope.IsMatch=true;
-    return false;
-  }
-  $scope.IsMatch=false;
-}
+	$("#signup").on("click", function(){
+		if ($("#exampleInputEmail3").value === $("#exampleInputEmail2").value)
+		$("#IsMatch").hidden = true;
+		else
+		alert("Emails have to match!");
+		$("#IsMatch").hidden = false;
+		});
 	</script>
-    <button type="submit" ng-click="add()" ng-disabled="exampleInputEmail2 != exampleInputEmail3" class="btn btn-default">Sign Up</button>
-    <span ng-show="IsMatch">Emails have to match!</span>
+    <button type="button" id="signup" class="btn btn-default">Sign Up</button>
+    <span id="IsMatch" hidden = "true">Emails have to match!</span>
 </form>
 
 <div class="page-header">
