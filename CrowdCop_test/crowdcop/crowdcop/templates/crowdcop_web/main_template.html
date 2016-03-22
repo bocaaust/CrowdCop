@@ -84,7 +84,7 @@
       </form>
       <ul class="nav navbar-nav navbar-right hidden-sm">
         {%if user.is_authenticated%}
-          <li><a>Welcome, {{user.username}}!</a></li>
+          <li><a>Welcome, {{user.first_name}}!</a></li>
           <li><a href="{%url 'logout'%}">Sign Out</a> </li>
 
         {%else%}

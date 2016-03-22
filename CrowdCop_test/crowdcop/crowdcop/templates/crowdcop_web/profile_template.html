@@ -39,7 +39,7 @@
       <div class="useravatar">
             <img alt="Profile Image" src="https://scontent-lga3-1.xx.fbcdn.net/hprofile-xap1/v/t1.0-1/p320x320/12341036_1501783263450006_2048940113394308522_n.jpg?oh=8fe5a3c7a8a16776a753d0426a4ee939&oe=5767B15F">
         </div>
-        <div class="card-info"><span class="card-title">{{user.firstname}} {{user.lastname}}</span></div>
+        <div class="card-info"><span class="card-title">{{user.first_name}} {{user.last_name}}</span></div>
     </div>
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
       <div class="btn-group" role="group">
@@ -118,9 +118,9 @@
         <div class="tab-pane fade in" id="tab3">
         <h2>About</h2>
           <ul class="list-group">
-  <li class="list-group-item"><h4>Name</h4> {{user.firstname}} {{user.lastname}}</li>
-  <li class="list-group-item"><h4>User Since</h4>{{user.joindate}}</li>
-  <li class="list-group-item"><h4>Jurisdiction</h4> {{user.jurisdiction}}</li>
+  <li class="list-group-item"><h4>Name</h4> {{user.first_name}} {{user.last_name}}</li>
+  <li class="list-group-item"><h4>User Since</h4>{{user.date_joined}}</li>
+  <li class="list-group-item"><h4>Jurisdiction</h4> {{user.CrowdcopUser.institution}}</li>
 </ul>
 
 <form action="http://crowd-cop.com/upload.php" method="post" enctype="multipart/form-data">
