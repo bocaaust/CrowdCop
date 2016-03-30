@@ -3,7 +3,9 @@
 {%block title%}Submit a Tip{%endblock%}
 
 {%block content%}
-
-	
+	<h1> Submit a Tip </h1>
+	<form id= "tip_form" method = "POST" action="/crowdcop_web/submit_tip">
+		{% csrf_token %}
+	</form>
 
 {%endblock%}
