@@ -94,3 +94,6 @@ def user_logout(request):
 
 	# Take the user back to the homepage.
 	return HttpResponseRedirect('/crowdcop_web/')
+
+def submit_tip(request):
+	return render(request, 'crowdcop_web/submit_tip')	
