@@ -37,3 +37,12 @@ class Contribution(models.Model):
 		Campaign,
 		related_name='contributions'
 		)
+
+class Tip(models.Model):
+	tip=models.TextField()
+	date=models.DateTimeField()
+	#Location will be a zip code for now
+	location=models.IntegerField(max_digits=5)
+
+class PayPalID(models.model):
+	paypal_username=models.CharField(max_length=100)

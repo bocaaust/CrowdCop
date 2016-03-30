@@ -1,5 +1,5 @@
 from django import forms
-from .models import CrowdcopUser, Contribution
+from .models import CrowdcopUser, Contribution, Tip, PaypalID
 from django.contrib.auth.models import User
 
 class UserForm(forms.ModelForm):
@@ -13,3 +13,13 @@ class CrowdcopUserForm(forms.ModelForm):
 	class Meta:
 		model = CrowdcopUser
 		fields = ('institution',)
+
+class TipForm(forms.ModelForm):
+	class Meta:
+		model= Tip
+		fields = ('tip', 'date', 'location')
+
+class PaypalForm(forms.ModelForm):
+	class Meta:
+		model = PaypalID
+		fields = ('paypal_username')
