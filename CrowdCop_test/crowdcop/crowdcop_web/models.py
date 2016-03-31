@@ -42,7 +42,7 @@ class Tip(models.Model):
 	tip=models.TextField()
 	date=models.DateTimeField()
 	#Location will be a zip code for now
-	location=models.IntegerField(max_digits=5)
+	location=models.IntegerField()
 
-class PayPalID(models.model):
+class PayPalID(models.Model):
 	paypal_username=models.CharField(max_length=100)
