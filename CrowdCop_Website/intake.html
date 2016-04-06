@@ -82,27 +82,30 @@
 
 {%block content%}
 <script src="js/jquery-1.11.2.min.js"></script>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-lg-12">
+  <div class="col-lg-12">
       <div class="jumbotron" style = "background-color: #66ffff;
       background-image: url(img/CrowdCop_Logo_Long.png);
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: no-repeat;
 	color: white; text-shadow: black 0.3em 0.3em 0.3em;"> 
+    <div class ="row">
     <div class="center-block">
     <div class="col-sm-4"></div>
-     <img src="img/logo_transparent.png" width="25%" height="auto" class="img-responsive" alt="CrowdCop Logo"></div>
-        <h1 class="text-center" style="color: #FCFCFC;
+    <div class="col-sm-4">
+     <img src="img/logo_transparent.png" width="100%" height="auto" class="img-responsive" alt="CrowdCop Logo"></div></div></div>
+    <h1 class="text-center" style="color: #FCFCFC;
     background-color: black;
     border: 1px solid black;
     opacity: 0.55;
-    filter: alpha(opacity=55); /* For IE8 and earlier */"> &nbsp; Welcome to CrowdCop</h1>
-        </div>
-       
-</div>
-
+    filter: alpha(opacity=55); /* For IE8 and earlier */"> &nbsp;Submit a Tip</h1>
+      </div>
+  </div>
+  </div>
+  </div>
+<div class = "container-fluid">
  <div class="page-header">
    <h1> <small>Sign Up</small></h1>
  </div>
@@ -146,12 +149,12 @@
     </div>
     <button type="submit" class="btn btn-default">Submit </button>
 </form>
-
+</div>
 {%endblock%}
 </div>
 
 <hr>
-  <div class="container well">
+  <div class="container-fluid well">
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-7">
         <div class="row">

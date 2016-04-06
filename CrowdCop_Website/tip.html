@@ -90,15 +90,18 @@
     background-size: cover;
     background-repeat: no-repeat;
 	color: white; text-shadow: black 0.3em 0.3em 0.3em;"> 
+    <div class ="row">
     <div class="center-block">
     <div class="col-sm-4"></div>
-     <img src="img/logo_transparent.png" width="25%" height="auto" class="img-responsive" alt="CrowdCop Logo"></div>
+    <div class="col-sm-4">
+     <img src="img/logo_transparent.png" width="100%" height="auto" class="img-responsive" alt="CrowdCop Logo"></div></div></div>
     <h1 class="text-center" style="color: #FCFCFC;
     background-color: black;
     border: 1px solid black;
     opacity: 0.55;
     filter: alpha(opacity=55); /* For IE8 and earlier */"> &nbsp;Submit a Tip</h1>
       </div>
+  </div>
   </div>
   </div>
   
@@ -136,7 +139,7 @@
     
     <div class="form-group">
         <label for="crimeLocation"> Where did this occur? (Please be as specific as possible about the location. Include house number, street, color of house, etc.).</label>
-        <input type="text" class="form-control" id="crimeLocation" placeholder="">
+        <textarea class="form-control" id="crimeLocation" rows="5" placeholder=""></textarea>
     </div>
     
    SUSPECT INFORMATION
@@ -149,14 +152,45 @@
     <h4>Gender</h4>
    
    <div class="radio">
-  <label><input type="radio" name="gender">Male</label>
+  <label><input type="radio" name="suspectGender">Male</label>
 </div>
 <div class="radio">
-  <label><input type="radio" name="gender">Female</label>
+  <label><input type="radio" name="suspectGender">Female</label>
 </div>
 <div class="radio">
-  <label><input type="radio" name="gender">Other/Non-Binary</label>
+  <label><input type="radio" name="suspectGender">Other/Non-Binary</label>
 </div>
+
+<div class="form-group">
+  <label for="suspectRace">Race</label>
+    <select id="suspectRace" class="form-control">
+      <option>Unknown</option>
+      <option>Asian</option>
+      <option>Black</option>
+      <option>Caucasian</option>
+      <option>Hispanic</option>
+      <option>Mexican</option>
+      <option>Native American</option>
+      <option>Other</option>
+    </select> 
+</div>
+
+<div class="form-group">
+  <label for="suspectEyeColor">Eye Color</label>
+    <select id="suspectEyeColor" class="form-control">
+      <option>Unknown</option>
+      <option>Amber</option>
+      <option>Black</option>
+      <option>Blue</option>
+      <option>Brown</option>
+      <option>Gray</option>
+      <option>Green</option>
+      <option>Hazel</option>
+      <option>Other</option>
+    </select> 
+</div>
+
+
     
     
     
@@ -167,7 +201,7 @@
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
-  	SUSPECT INFORMATION  </div>
+    </div>
   
   {%endblock%}
 </div>
