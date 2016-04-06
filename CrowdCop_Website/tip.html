@@ -126,8 +126,39 @@
     
     <div class="form-group">
         <label for="crimeDetails">What happened? (Be specific about the alleged crime and any victims).</label>
-        <input type="textarea" class="form-control" id="crimeDetails" placeholder="">
+        <textarea class="form-control" rows="5" id="crimeDetails" placeholder=""></textarea>
     </div>
+    
+    <div class="form-group">
+        <label for="crimeDate">When did this occur (If known, enter date and time) .</label>
+        <input type="text" class="form-control" id="crimeDate" placeholder="">
+    </div>
+    
+    <div class="form-group">
+        <label for="crimeLocation"> Where did this occur? (Please be as specific as possible about the location. Include house number, street, color of house, etc.).</label>
+        <input type="text" class="form-control" id="crimeLocation" placeholder="">
+    </div>
+    
+   SUSPECT INFORMATION
+   
+   <div class="form-group">
+        <label for="suspectIdentity"> Who did you see? (If known, enter a name or a name known by)</label>
+        <input type="text" class="form-control" id="suspectIdentity" placeholder="">
+    </div>
+    
+    <h4>Gender</h4>
+   
+   <div class="radio">
+  <label><input type="radio" name="gender">Male</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="gender">Female</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="gender">Other/Non-Binary</label>
+</div>
+    
+    
     
     <div class="checkbox">
         <label>
@@ -136,7 +167,7 @@
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
-  </div>
+  	SUSPECT INFORMATION  </div>
   
   {%endblock%}
 </div>
