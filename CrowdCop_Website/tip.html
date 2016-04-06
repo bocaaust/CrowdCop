@@ -80,6 +80,7 @@
 
 <div id = "content">
   {%block content %}
+  <script src="js/jquery-1.11.2.min.js"></script>
   
   <div class="container-fluid">
   <div class="row">
@@ -110,12 +111,25 @@
     <h4>Submit information regarding suspicious, nuisance and criminal activity to RPI Public Safety. You may submit a tip anonymously or you may submit your name in the contact field below. </h4>
     <h4>If you are filling out a tip on a potential or wanted suspect, fill out as much information that you may know, including physical description, any known addresses, gang affiliations, and other locations where they may be found.</h4>
     <h4>Use the form below to submit a crime tip. Fill out as much information as possible and click the "Submit" button below. Please be sure to include all information that you know regarding the suspect.</h4>
+    <h4>If your tip is approved and you wish to be compensated through a relavent CrowdCop campaign you must enter your Paypal username below as well as select a relavent campaign. Your paypal username will remain confidential and anonymous. </h4>
   </div>
+  <div class = "row" id ="tip_form">
   	<form>
     <div class="form-group">
         <label for="tipDate">Tip Date</label>
-        <input type="date" class="form-control" id="tipDate">
+        <input type="date" class="form-control" readonly="readonly" id="tipDate">
     </div>
+    <script>
+    var today = new Date();
+var dd = ("0" + (today.getDate())).slice(-2);
+var mm = ("0" + (today.getMonth() +　1)).slice(-2);
+var yyyy = today.getFullYear();
+var hh = (today.getHours()<10?'0':'') + today.getHours()
+var mi = (today.getMinutes()<10?'0':'') + today.getMinutes();
+today = yyyy + '-' + mm + '-' + dd + ' ' + hh + ':' + mi;
+$("#tipDate").attr("value", today);
+</script>
+    
     <div class="form-group">
   <label for="campaign">Campaign</label>
     <select id="campaign" class="form-control">
@@ -190,18 +204,121 @@
     </select> 
 </div>
 
+<div class="form-group">
+  <label for="suspectHairColor">Hair Color</label>
+    <select id="suspectHairColor" class="form-control">
+      <option>Unknown</option>
+      <option>Black</option>
+      <option>Brown</option>
+      <option>Blonde</option>
+      <option>Gray</option>
+      <option>Red</option>
+      <option>Other</option>
+    </select> 
+</div>
+
+<div class="form-group">
+  <label for="suspectHairStyle">Hair Style</label>
+    <select id="suspectHairStyle" class="form-control">
+      <option>Unknown</option>
+      <option>Short</option>
+      <option>Medium</option>
+      <option>Long</option>
+      <option>Dreadlocks</option>
+      <option>Balding</option>
+      <option>Shave/Bald</option>
+      <option>Other</option>
+    </select> 
+</div>
+
+
+<div class="form-group">
+        <label for="suspectFeatures">Scars, Marks, Tattoos</label>
+        <input type="text" class="form-control" id="suspectFeatures" placeholder="">
+    </div>
+    
+    <div class="form-group">
+        <label for="suspectOther">Other suspect details (clothing, telephone, employment, etc.)</label>
+        <input type="text" class="form-control" id="suspectOther" placeholder="">
+    </div>
+    
+    
+    CONTACT
+    
+    <h4>Do you want to be contacted in reference to this incident?</h4>
+   
+   <div class="radio">
+  <label><input type="radio" name="contact">Yes</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="contact">No</label>
+</div>
+
+<div class="form-group">
+        <label for="contactName">Your Name (Not Required):</label>
+        <input type="text" class="form-control" id="contactName" placeholder="">
+    </div>
+    
+    <div class="form-group">
+        <label for="contactPayPal">If you wish to be compensated for your tip, please enter your Paypal username here (Not Required):</label>
+        <input type="text" class="form-control" id="contactPayPal" placeholder="">
+    </div>
+    
+    
+	<div class="form-group">
+        <label for="contactInfo">How can we contact you?</label>
+        <textarea class="form-control" rows="5" id="contactInfo" placeholder=""></textarea>
+    </div>
+    
 
     
-    
-    
-    <div class="checkbox">
-        <label>
-            <input type="checkbox">Click to Verify
-        </label>
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <img id="captcha" src="library/securimage_show.php" alt="CAPTCHA Image" />
+      <a href="#" onclick="document.getElementById('captcha').src = 'library/securimage_show.php?' + Math.random(); return false" class="btn btn-info btn-sm">Show a Different Image</a><br/>
+      <div class="form-group" style="margin-top: 10px;">
+        <input type="text" class="form-control" name="captcha_code" id="captcha_code" placeholder="For security, please enter the code displayed in the box." />
+        <span class="help-block" style="display: none;">Please enter the code displayed within the image.</span>
+      </div>
+       
+      <span class="help-block" style="display: none;">Please enter a the security code.</span>
+    <button type="submit" id="formSubmit" class="btn btn-default">Submit</button>
 </form>
     </div>
+    </div>
+    <script>
+	$(document).ready(function() {
+  $("#formSubmit").click(function() {
+  
+ 
+    
+ 
+    //send the feedback e-mail
+    $.ajax({
+      type: "POST",
+      url: "library/sendmail.php",
+      data: $("#tip_form").serialize(),
+      success: function(data)
+      {
+        contactForm.addAjaxMessage(data.message, false);
+        //get new Captcha on success
+        $('#captcha').attr('src', 'library/securimage_show.php?' + Math.random());
+      },
+      error: function(response)
+      {
+        contactForm.addAjaxMessage(response.responseJSON.message, true);
+      }
+   });
+    return false;
+  }); 
+});
+ 
+//namespace as not to pollute global namespace
+var contactForm = {
+  addAjaxMessage: function(msg, isError) {
+    $("#feedbackSubmit").after('<div id="emailAlert" class="alert alert-' + (isError ? 'danger' : 'success') + '" style="margin-top: 5px;">' + $('<div/>').text(msg).html() + '</div>');
+  }
+};
+	
+	</script>
   
   {%endblock%}
 </div>
@@ -266,8 +383,7 @@
       </div>
     </div>
   </div>
-</footer>
-<script src="js/jquery-1.11.2.min.js"></script> 
+</footer> 
 <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
