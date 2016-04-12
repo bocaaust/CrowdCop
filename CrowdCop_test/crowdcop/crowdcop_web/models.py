@@ -23,6 +23,9 @@ class Campaign(models.Model):
 	stat_3=models.CharField(max_length=25)
 	stat_3_description=models.TextField()
 
+	def __unicode__(self):
+		return "{}".format(self.campaign_title)
+
 class CrowdcopUser(models.Model):
 	user=models.OneToOneField(User, on_delete=models.CASCADE)
 	institution=models.CharField(max_length=100)
@@ -42,7 +45,6 @@ class Contribution(models.Model):
 
 class Tip(models.Model):
 	date=models.DateTimeField()
-	campaign=forms.ModelChoiceField(queryset=Campaign.objects.all())
 	#Location will be a zip code for now
 	location=models.TextField()
 
