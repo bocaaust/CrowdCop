@@ -14,11 +14,15 @@ class CrowdcopUserForm(forms.ModelForm):
 		model = CrowdcopUser
 		fields = ('institution',)
 
-class TipForm(forms.ModelForm):
-
+class CrimeDetailForm(forms.ModelForm):
 	class Meta:
 		model= Tip
-		fields = ('details','date', 'location','campaign','suspect_identity','suspect_gender','suspect_race','suspect_eye_color','suspect_hair_color','suspect_hair_style','suspect_features','suspect_other',)
+		fields = ('details','date', 'location','campaign',)
+
+class SuspectForm(forms.ModelForm):
+	class Meta:
+		model=Tip
+		fields = ('suspect_identity','suspect_gender','suspect_race','suspect_eye_color','suspect_hair_color','suspect_hair_style','suspect_features','suspect_other',)
 
 class PaypalForm(forms.ModelForm):
 	class Meta:

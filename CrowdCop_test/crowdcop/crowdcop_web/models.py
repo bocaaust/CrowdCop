@@ -88,26 +88,26 @@ class Tip(models.Model):
 		('BALD/SHAVED', 'Bald/Shaved'),
 		('OTHER', 'Other'),	
 		)
-	details=models.TextField()
-	date=models.DateTimeField()
+	details=models.TextField(verbose_name='What happened? (Be specific about the alleged crime and any victims).')
+	date=models.DateTimeField(verbose_name='When did this occur (If known, enter date and time).')
 	#Location will be a zip code for now
-	location=models.TextField()
+	location=models.TextField(verbose_name='Where did this occur? (Please be as specific as possible about the location. Include house number, street, color of house, etc.).')
 	campaign=models.ForeignKey(
 		Campaign,
 		related_name='campaigns')
 
 	#Suspect information 
-	suspect_identity=models.CharField(max_length=128)
+	suspect_identity=models.CharField(max_length=128, verbose_name='Who did you see? (If known, enter a name or a name known by)')
 	suspect_gender=models.CharField(choices=GENDER_CHOICES, max_length=30)
 	suspect_race=models.CharField(choices=RACE_CHOICES, max_length=30)
 	suspect_eye_color=models.CharField(choices=EYE_COLOR_CHOICES,max_length=20)
 	suspect_hair_color=models.CharField(choices=HAIR_COLOR_CHOICES, max_length=20)
 	suspect_hair_style=models.CharField(choices=HAIR_STYLE_CHOICES, max_length=30)
-	suspect_features=models.TextField()
-	suspect_other=models.TextField()
+	suspect_features=models.TextField(verbose_name='Scars, Marks, Tattoos, Piercings')
+	suspect_other=models.TextField(verbose_name='Other suspect details (clothing, telephone, employment, etc.)')
 
 
 class PayPalID(models.Model):
-	contact_name=models.CharField(max_length=100)
-	paypal_username=models.CharField(max_length=100)
-	contact_info=models.TextField()
+	contact_name=models.CharField(verbose_name='Your Name (not required):', max_length=100)
+	paypal_username=models.CharField(verbose_name='If you wish to be compensated for your tip, please enter your Paypal username here (Not Required):',max_length=100)
+	contact_info=models.TextField(verbose_name='How can we contact you?')

@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import Campaign
-from .forms import UserForm, CrowdcopUserForm, TipForm, PaypalForm
+from .forms import UserForm, CrowdcopUserForm, CrimeDetailForm, SuspectForm, PaypalForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
@@ -96,7 +96,8 @@ def user_logout(request):
 	return HttpResponseRedirect('/crowdcop_web/')
 
 def submit_tip(request):
-	tip_form=TipForm()
+	tip_form=CrimeDetailForm()
+	suspect_form=SuspectForm()
 	paypal_form=PaypalForm()
 	return render(request, 'crowdcop_web/tip_template.html',
-		{'tip_form': tip_form, 'paypal_form':paypal_form})	
+		{'tip_form': tip_form, 'suspect_form': suspect_form, 'paypal_form':paypal_form})	
