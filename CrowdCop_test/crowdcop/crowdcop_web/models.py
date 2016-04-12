@@ -44,17 +44,65 @@ class Contribution(models.Model):
 		)
 
 class Tip(models.Model):
+	GENDER_CHOICES = (
+		('MALE', 'Male'),
+		('FEMALE', 'Female'),
+		('OTHER', 'Other/Unknown'),
+		)
+	RACE_CHOICES = (
+		('UNKNOWN', 'Unknown'),
+		('ASIAN', 'Asian'),
+		('BLACK/AFRICAN-AMERICAN', 'Black/African-American'),
+		('CAUCASIAN', 'Caucasian'),
+		('HISPANIC/LATINO', 'Hispanic/Latino'),
+		('NATIVE AMERICAN', 'Native American'),
+		('OTHER', 'Other'),
+		)
+	EYE_COLOR_CHOICES = (
+		('UNKNOWN', 'Unknown'),
+		('AMBER', 'Amber'),
+		('BLACK', 'Black'),
+		('BLUE', 'Blue'),
+		('BROWN', 'Brown'),
+		('GRAY', 'Gray'),
+		('GREEN', 'Green'),
+		('HAZEL', 'Hazel'),
+		('OTHER', 'Other'),
+		)
+	HAIR_COLOR_CHOICES = (
+		('UNKNOWN', 'Unknown'),
+		('BLACK', 'Black'),
+		('BROWN', 'Brown'),
+		('GRAY', 'Gray'),
+		('BLOND', 'Blond'),
+		('RED', 'Red'),
+		('OTHER', 'Other'),		
+		)
+	HAIR_STYLE_CHOICES = (
+		('UNKNOWN', 'Unknown'),
+		('SHORT', 'Short'),
+		('MEDIUM', 'Medium'),
+		('LONG', 'Long'),
+		('DREADLOCKS', 'Dreadlocks'),
+		('BALDING', 'Balding'),
+		('BALD/SHAVED', 'Bald/Shaved'),
+		('OTHER', 'Other'),	
+		)
+	details=models.TextField()
 	date=models.DateTimeField()
 	#Location will be a zip code for now
 	location=models.TextField()
+	campaign=models.ForeignKey(
+		Campaign,
+		related_name='campaigns')
 
 	#Suspect information 
-	suspect_identity=models.TextField()
-	suspect_gender=models.CharField(max_length=20)
-	suspect_race=models.CharField(max_length=100)
-	suspect_eye_color=models.CharField(max_length=20)
-	suspect_hair_color=models.CharField(max_length=20)
-	suspect_hair_style=models.CharField(max_length=30)
+	suspect_identity=models.CharField(max_length=128)
+	suspect_gender=models.CharField(choices=GENDER_CHOICES, max_length=30)
+	suspect_race=models.CharField(choices=RACE_CHOICES, max_length=30)
+	suspect_eye_color=models.CharField(choices=EYE_COLOR_CHOICES,max_length=20)
+	suspect_hair_color=models.CharField(choices=HAIR_COLOR_CHOICES, max_length=20)
+	suspect_hair_style=models.CharField(choices=HAIR_STYLE_CHOICES, max_length=30)
 	suspect_features=models.TextField()
 	suspect_other=models.TextField()
 

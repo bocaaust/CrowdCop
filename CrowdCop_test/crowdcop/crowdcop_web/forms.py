@@ -15,11 +15,10 @@ class CrowdcopUserForm(forms.ModelForm):
 		fields = ('institution',)
 
 class TipForm(forms.ModelForm):
-	campaign=forms.ModelChoiceField(queryset=Campaign.objects.all())
 
 	class Meta:
 		model= Tip
-		fields = ('date', 'location','suspect_identity','suspect_gender','suspect_race','suspect_eye_color','suspect_hair_color','suspect_features','suspect_other',)
+		fields = ('details','date', 'location','campaign','suspect_identity','suspect_gender','suspect_race','suspect_eye_color','suspect_hair_color','suspect_hair_style','suspect_features','suspect_other',)
 
 class PaypalForm(forms.ModelForm):
 	class Meta:
