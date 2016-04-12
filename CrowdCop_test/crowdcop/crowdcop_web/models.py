@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.db import models
+from django.forms.widgets import Select
+from django import forms
 
 # Create your models here.
 
@@ -40,9 +42,7 @@ class Contribution(models.Model):
 
 class Tip(models.Model):
 	date=models.DateTimeField()
-	campaign=models.ForeignKey(
-		Campaign,
-		related_name='related_campaign')
+	campaign=forms.ModelChoiceField(queryset=Campaign.objects.all())
 	#Location will be a zip code for now
 	location=models.TextField()
 
