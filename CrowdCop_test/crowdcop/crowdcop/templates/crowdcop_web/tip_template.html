@@ -7,11 +7,22 @@
 {%block form%}
 	<form id= "tip_form" method = "POST" action="/crowdcop_web/submit_tip">
 		{% csrf_token %}
-
-			{{ tip_form.as_p }}
-			{{ suspect_form.as_p }}
-			{{ paypal_form.as_p }}
-
+		<div class="page-header">
+			<h1><small>Crime Details</small></h1>
+		</div>
+		{{ tip_form.as_p }}		
+		<div class="page-header">
+			<h1><small>Suspect Information</small></h1>
+		</div>
+		{{ suspect_form.as_p }}
+		<div class="page-header">
+			<h1><small>Contact Information (Optional)</small></h1>
+		</div>
+		{{ paypal_form.as_p }}
+		<div class="page-header">
+			<h1><small>Security Check</small></h1>
+		</div>
+		{{captcha_form.as_p}}
 	</form>
 	<input type="submit" name="submit" value="Submit" />
 {%endblock%}

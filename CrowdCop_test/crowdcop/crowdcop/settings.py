@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'captcha', # Include the django-simple-captcha application
+
 ]
 
 MIDDLEWARE_CLASSES = [

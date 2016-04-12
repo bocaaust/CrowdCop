@@ -92,9 +92,12 @@ class Tip(models.Model):
 	date=models.DateTimeField(verbose_name='When did this occur (If known, enter date and time).')
 	#Location will be a zip code for now
 	location=models.TextField(verbose_name='Where did this occur? (Please be as specific as possible about the location. Include house number, street, color of house, etc.).')
+	
+	#As the number of campaigns increases, we will replace this drop-down menu with a search bar
 	campaign=models.ForeignKey(
 		Campaign,
-		related_name='campaigns')
+		related_name='campaigns',
+		verbose_name='Below is a list of all existing campaigns currently on the CrowdCop website. If any of these campaigns are relevant to your tip, please select it.')
 
 	#Suspect information 
 	suspect_identity=models.CharField(max_length=128, verbose_name='Who did you see? (If known, enter a name or a name known by)')

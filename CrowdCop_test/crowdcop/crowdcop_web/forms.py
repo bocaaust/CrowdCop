@@ -1,6 +1,7 @@
 from django import forms
 from .models import CrowdcopUser, Contribution, Tip, PayPalID, Campaign
 from django.contrib.auth.models import User
+from captcha.fields import CaptchaField
 
 class UserForm(forms.ModelForm):
 	password = forms.CharField(widget=forms.PasswordInput())
@@ -28,3 +29,6 @@ class PaypalForm(forms.ModelForm):
 	class Meta:
 		model = PayPalID
 		fields = ('contact_name', 'paypal_username', 'contact_info',)
+
+class CaptchaForm(forms.Form):
+  	captcha = CaptchaField()
