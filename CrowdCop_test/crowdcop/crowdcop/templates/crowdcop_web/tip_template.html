@@ -1,11 +1,16 @@
-{%extends "crowdcop_web/main_template.html"%}
+{%extends "crowdcop_web/form_parent.html"%}
 
 {%block title%}Submit a Tip{%endblock%}
 
-{%block content%}
-	<h1> Submit a Tip </h1>
+{%block jumbotron_message%}Submit a Tip{%endblock%}
+
+{%block form%}
 	<form id= "tip_form" method = "POST" action="/crowdcop_web/submit_tip">
 		{% csrf_token %}
+
+			{{ tip_form.as_p }}
+			{{ paypal_form.as_p }}
+
 	</form>
 
 {%endblock%}

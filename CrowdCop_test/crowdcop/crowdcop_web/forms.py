@@ -17,9 +17,9 @@ class CrowdcopUserForm(forms.ModelForm):
 class TipForm(forms.ModelForm):
 	class Meta:
 		model= Tip
-		fields = ('tip', 'date', 'location')
+		fields = ('date', 'location','suspect_identity','suspect_gender','suspect_race','suspect_eye_color','suspect_hair_color','suspect_features','suspect_other',)
 
 class PaypalForm(forms.ModelForm):
 	class Meta:
 		model = PayPalID
-		fields = ('paypal_username',)
+		fields = ('contact_name', 'paypal_username', 'contact_info',)

@@ -39,10 +39,25 @@ class Contribution(models.Model):
 		)
 
 class Tip(models.Model):
-	tip=models.TextField()
 	date=models.DateTimeField()
+	campaign=models.ForeignKey(
+		Campaign,
+		related_name='related_campaign')
 	#Location will be a zip code for now
-	location=models.IntegerField()
+	location=models.TextField()
+
+	#Suspect information 
+	suspect_identity=models.TextField()
+	suspect_gender=models.CharField(max_length=20)
+	suspect_race=models.CharField(max_length=100)
+	suspect_eye_color=models.CharField(max_length=20)
+	suspect_hair_color=models.CharField(max_length=20)
+	suspect_hair_style=models.CharField(max_length=30)
+	suspect_features=models.TextField()
+	suspect_other=models.TextField()
+
 
 class PayPalID(models.Model):
+	contact_name=models.CharField(max_length=100)
 	paypal_username=models.CharField(max_length=100)
+	contact_info=models.TextField()
