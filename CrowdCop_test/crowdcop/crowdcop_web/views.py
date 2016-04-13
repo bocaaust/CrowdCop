@@ -5,6 +5,7 @@ from .models import Campaign
 from .forms import UserForm, CrowdcopUserForm, CrimeDetailForm, SuspectForm, PaypalForm, CaptchaForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.core import serializers
 
 
 # Create your views here.
@@ -98,9 +99,26 @@ def user_logout(request):
 def submit_tip(request):
 
 	if request.method== 'POST':
-			tip_form=CrimeDetailForm(data=request.POST)
-			suspect_form=SuspectForm(data=request.POST)
-			paypal_form=PaypalForm(data=request.POST)
-			captcha_form=CaptchaForm(data=request.POST)	
+		tip_form=CrimeDetailForm(data=request.POST)
+		suspect_form=SuspectForm(data=request.POST)
+		paypal_form=PaypalForm(data=request.POST)
+		captcha_form=CaptchaForm(request.POST)
+
+		if tip_form.is_valid() and captcha_form.is_valid():
+			tip = tip_form.save()
+			suspect = suspect_form.save()
+			paypal_id=paypal_form.save()
+			tip_data = serializers.serialize("xml", [tip])
+			suspect_data=serializers.serialize("xml",[suspect])
+			print tip_data+suspect_data
+
+			return HttpResponseRedirect('/crowdcop_web/')
+		else:
+			print tip_form.errors, captcha_form.errors
+	else:
+		tip_form=CrimeDetailForm()
+		suspect_form=SuspectForm()
+		paypal_form=PaypalForm()
+		captcha_form=CaptchaForm()
 	return render(request, 'crowdcop_web/tip_template.html',
 		{'tip_form': tip_form, 'suspect_form': suspect_form, 'paypal_form':paypal_form, 'captcha_form': captcha_form})	

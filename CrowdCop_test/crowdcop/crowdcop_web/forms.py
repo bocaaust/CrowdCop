@@ -2,7 +2,7 @@ from django import forms
 from .models import CrowdcopUser, Contribution, Tip, PayPalID, Campaign
 from django.contrib.auth.models import User
 from captcha.fields import CaptchaField
-
+from django.forms import Textarea, SelectDateWidget
 class UserForm(forms.ModelForm):
 	password = forms.CharField(widget=forms.PasswordInput())
 

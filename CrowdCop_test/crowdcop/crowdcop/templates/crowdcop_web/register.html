@@ -1,4 +1,5 @@
 {%extends "crowdcop_web/form_parent.html"%}
+{% load i18n widget_tweaks %}
 
 {%block title%}Register{%endblock%}
 {%block jumbotron_message%}Welcome to CrowdCop{%endblock%}
@@ -19,10 +20,20 @@
 				enctype="multipart/form-data">
 
 			{% csrf_token %}
-			{{ user_form.as_p }}
-			{{ profile_form.as_p }}
+			{% for field in user_form %}
+		    <div class="form-group">
+		        {{ field.errors }}
+		        {{ field.label_tag }} {{ field|attr:"class:form-control" }}
+		    </div>
+			{% endfor %}
+			{% for field in profile_form %}
+		    <div class="form-group">
+		        {{ field.errors }}
+		        {{ field.label_tag }} {{ field|attr:"class:form-control" }}
+		    </div>
+			{% endfor %}
 
-			<input type="submit" name="submit" value="Register" />
+			<input type="submit" name="submit" value="Register" class="btn btn-default"/>
 		</form>
 	{%endif%}
 {%endblock%}

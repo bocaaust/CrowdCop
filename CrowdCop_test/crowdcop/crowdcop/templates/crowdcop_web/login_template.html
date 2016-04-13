@@ -7,13 +7,10 @@
    {%block form%}
 	 <form id="login_form" method="post" action="/crowdcop_web/login/">
 	 	{% csrf_token %}
-		Username: <input type="text" name="username" value="" size="50" />
+		Username: <input type="text" name="username" value="" size="50" class="form-control"/>
 		<br />
-		Password: <input type="password" name="password" value="" size="50" />
+		Password: <input type="password" name="password" value="" size="50" class="form-control"/>
 		<br />
-		<input type="submit" value="submit" />
+		<input type="submit" value="Sign In" class="btn btn-default"/>
 	 </form>
-}
-}
-}
 {%endblock%}

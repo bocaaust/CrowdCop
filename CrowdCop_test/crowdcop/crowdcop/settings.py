@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'captcha', # Include the django-simple-captcha application
+    'widget_tweaks',
 
 ]
 
