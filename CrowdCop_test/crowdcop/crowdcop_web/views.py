@@ -6,6 +6,7 @@ from .forms import UserForm, CrowdcopUserForm, CrimeDetailForm, SuspectForm, Pay
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
+from django.core.mail import send_mail, BadHeaderError
 
 
 # Create your views here.
@@ -103,15 +104,23 @@ def submit_tip(request):
 		suspect_form=SuspectForm(data=request.POST)
 		paypal_form=PaypalForm(data=request.POST)
 		captcha_form=CaptchaForm(request.POST)
-
+		email_message=""
 		if tip_form.is_valid() and captcha_form.is_valid():
 			tip = tip_form.save()
 			suspect = suspect_form.save()
 			paypal_id=paypal_form.save()
 			tip_data = serializers.serialize("xml", [tip])
 			suspect_data=serializers.serialize("xml",[suspect])
-			print tip_data+suspect_data
 
+			email_message= tip_data + suspect_data
+			print email_message
+			paypal_data=serializers.serialize("xml",[paypal_id])
+
+	        try:
+	        	send_mail("Crime Tip", email_message, 'tips@crowd-cop.com', ['tips@crowd-cop.com'])
+	        except BadHeaderError:
+	        	return HttpResponse('Invalid header found.')
+			
 			return HttpResponseRedirect('/crowdcop_web/')
 		else:
 			print tip_form.errors, captcha_form.errors

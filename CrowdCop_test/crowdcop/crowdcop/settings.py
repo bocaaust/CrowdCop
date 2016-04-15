@@ -22,6 +22,8 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 STATICFILES_DIRS = [
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
