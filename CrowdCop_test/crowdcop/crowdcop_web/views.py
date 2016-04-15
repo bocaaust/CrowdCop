@@ -117,7 +117,7 @@ def submit_tip(request):
 			paypal_data=serializers.serialize("xml",[paypal_id])
 
 	        try:
-	        	send_mail("Crime Tip", email_message, 'tips@crowd-cop.com', ['tips@crowd-cop.com'])
+	        	send_mail("Crime Tip", email_message, 'tips@crowdcop.io', ['tips@crowdcop.io'])
 	        except BadHeaderError:
 	        	return HttpResponse('Invalid header found.')
 			
