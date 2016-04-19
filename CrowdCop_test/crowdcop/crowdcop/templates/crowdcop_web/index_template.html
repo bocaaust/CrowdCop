@@ -98,13 +98,28 @@
   <nav class="text-center">
     
     <ul class="pagination">
-      <li> <a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a> </li>
-      <li class="active"><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li class="disabled"><a href="#">5</a></li>
-      <li> <a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a> </li>
+
+      {%ifequal page 1%}
+      <li class="disabled"> <a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a> </li>
+      {%else%}
+      <li> <a href="{%url 'trending' page=previous_page%}" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a> </li>
+      {%endifequal%}
+      
+      {%for page_num in pages%}
+
+        {%ifequal page page_num%}
+        <li class="active"><a href="#">{{page_num}}</a></li>
+        {%else%}
+        <li><a href="{%url 'trending' page=forloop.counter%}">{{page_num}}</a></li>
+        {%endifequal%}
+      {%endfor%}
+      <li class="disabled"><a href="#">{{inactive_page}}</a></li>
+      {%ifequal page num_pages%}
+      <li class="disabled"> <a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a> </li>
+      {%else%}
+      <li> <a href="{%url 'trending' page=next_page%}" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a> </li>
+      {%endifequal%}
+      
     </ul>
   </nav>
 </div>

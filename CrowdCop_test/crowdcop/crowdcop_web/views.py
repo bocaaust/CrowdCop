@@ -7,18 +7,20 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
 from django.core.mail import send_mail, BadHeaderError
-
+import math
 
 # Create your views here.
 def index(request):
 	latest_campaigns= Campaign.objects.order_by('-start_date')[:9]
 	trending_campaigns=Campaign.objects.order_by('amount_crowdfunded')[:6]
-	return render(request, 'crowdcop_web/index_template.html',{'latest_campaigns': latest_campaigns, 'trending_campaigns': trending_campaigns, 'page':1,})
+	return render(request, 'crowdcop_web/index_template.html',{'latest_campaigns': latest_campaigns, 
+		'trending_campaigns': trending_campaigns, 'page':1,})
 
 def campaign(request, campaign_id):
 	campaign = get_object_or_404(Campaign, pk=campaign_id)
 
-	return render(request, 'crowdcop_web/campaign_template.html', {'campaign':campaign})
+	return render(request, 'crowdcop_web/campaign_template.html', 
+		{'campaign':campaign})
 
 def profile(request):
 	return render(request, 'crowdcop_web/profile_template.html')
@@ -36,9 +38,18 @@ def faq(request):
 def trending(request, page):
 	start=6*(int(page)-1)
 	end=6*int(page)
+	num_pages=int(math.ceil((Campaign.objects.count())/6))+1
+	previous_page=(int(page))-1
+	next_page=(int(page))+1
+	pages = []
+	for i in range(1,(num_pages+1)):
+		pages.append(i)
+	inactive_page=num_pages+1
 	latest_campaigns= Campaign.objects.order_by('-start_date')[:9]
 	trending_campaigns=Campaign.objects.order_by('amount_crowdfunded')[start:end]
-	return render(request, 'crowdcop_web/index_template.html',{'latest_campaigns': latest_campaigns, 'trending_campaigns': trending_campaigns, 'page':page,})
+	return render(request, 'crowdcop_web/index_template.html',{'latest_campaigns': latest_campaigns,
+	 'trending_campaigns': trending_campaigns, 'current_page':page,'previous_page':previous_page,'next_page':next_page,
+	 'num_pages':num_pages,'pages':pages,'inactive_page': inactive_page,})
 
 def register(request):
 	registered= False
