@@ -24,7 +24,7 @@ STATICFILES_DIRS = [
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = "/home/django/crowdcop/crowdcop/static"
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
