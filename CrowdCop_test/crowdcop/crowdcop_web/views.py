@@ -13,8 +13,14 @@ import math
 def index(request):
 	latest_campaigns= Campaign.objects.order_by('-start_date')[:9]
 	trending_campaigns=Campaign.objects.order_by('amount_crowdfunded')[:6]
+	num_pages=int(math.ceil((Campaign.objects.count())/6))+1
+	inactive_page=num_pages+1
+	pages = []
+	for i in range(1,(num_pages+1)):
+		pages.append(i)
 	return render(request, 'crowdcop_web/index_template.html',{'latest_campaigns': latest_campaigns, 
-		'trending_campaigns': trending_campaigns, 'page':1,})
+		'trending_campaigns': trending_campaigns, 'current_page':1,'previous_page':0,'next_page':2,
+	 'num_pages':num_pages,'pages':pages,'inactive_page': inactive_page,})
 
 def campaign(request, campaign_id):
 	campaign = get_object_or_404(Campaign, pk=campaign_id)
