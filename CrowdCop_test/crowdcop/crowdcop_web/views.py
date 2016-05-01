@@ -57,6 +57,22 @@ def trending(request, page):
 	 'trending_campaigns': trending_campaigns, 'current_page':page,'previous_page':previous_page,'next_page':next_page,
 	 'num_pages':num_pages,'pages':pages,'inactive_page': inactive_page,})
 
+def trending_blank(request):
+	start=0
+	end=6
+	num_pages=int(math.ceil((Campaign.objects.count())/6))+1
+	previous_page=0
+	next_page=2
+	pages = []
+	for i in range(1,(num_pages+1)):
+		pages.append(i)
+	inactive_page=num_pages+1
+	latest_campaigns= Campaign.objects.order_by('-start_date')[:9]
+	trending_campaigns=Campaign.objects.order_by('amount_crowdfunded')[start:end]
+	return render(request, 'crowdcop_web/index_template.html',{'latest_campaigns': latest_campaigns,
+	 'trending_campaigns': trending_campaigns, 'current_page':1,'previous_page':previous_page,'next_page':next_page,
+	 'num_pages':num_pages,'pages':pages,'inactive_page': inactive_page,})
+
 def register(request):
 	registered= False
 
