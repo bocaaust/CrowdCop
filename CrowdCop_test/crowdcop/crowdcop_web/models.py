@@ -29,6 +29,7 @@ class Campaign(models.Model):
 class CrowdcopUser(models.Model):
 	user=models.OneToOneField(User, on_delete=models.CASCADE)
 	institution=models.CharField(max_length=100)
+	following = modles.ManyToManyField(Campaign)
 	def get_contributions(self):
 		return Contribution.select().where(Contribution.user==self.user)
 
