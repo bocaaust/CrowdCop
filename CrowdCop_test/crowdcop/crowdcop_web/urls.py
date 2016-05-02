@@ -32,5 +32,8 @@ urlpatterns = [
     url(r'^register/$', views.register, name='register'),
 	url(r'^login/$', views.user_login, name='login'),
 	url(r'^logout/$', views.user_logout, name='logout'),
-    url(r'^submit_tip/$', views.submit_tip, name='submit_tip')
+    url(r'^submit_tip/$', views.submit_tip, name='submit_tip'),
+    url(r'^follow/(?P<campaign_id>[0-9]+)/$', views.follow, name='follow'),
+    url(r'^unfollow/(?P<campaign_id>[0-9]+)/$', views.unfollow, name='unfollow')
+
 ]

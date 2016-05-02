@@ -27,7 +27,7 @@ class Campaign(models.Model):
 		return "{}".format(self.campaign_title)
 
 class CrowdcopUser(models.Model):
-	user=models.OneToOneField(User, on_delete=models.CASCADE)
+	user=models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
 	institution=models.CharField(max_length=100)
 	following = models.ManyToManyField(Campaign)
 	def get_contributions(self):

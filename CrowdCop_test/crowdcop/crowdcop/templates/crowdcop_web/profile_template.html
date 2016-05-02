@@ -64,16 +64,16 @@
         <div class="tab-pane fade in active" id="tab1">
           <div class="container">
   <div class="row text-center">
-    {%if user.following.size == 0%}
+    {%if campaigns.size == 0%}
       This user isn't following any campaigns.
     {%else%}
-      {%for campaign in user.following%}
+      {%for campaign in campaigns%}
         <div class="col-sm-10 container-fluid">
           <div class="thumbnail"> 
             <div class="caption">
-              <h3>{{campaign.title}}</h3>
-              <p>{{campaign.description}}</p>
-              <p><a href="BikeTheft_testpage.html" class="btn btn-primary" role="button">Crowd Fund</a></p>
+              <h3>{{campaign.campaign_title}}</h3>
+              <p>{{campaign.campaign_description}}</p>
+              <p><a href="/crowdcop_web/campaign/{{campaign.id}}" class="btn btn-primary" role="button">Crowd Fund</a></p>
             </div>
           </div>
         </div>

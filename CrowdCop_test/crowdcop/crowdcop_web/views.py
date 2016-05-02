@@ -1,13 +1,14 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from .models import Campaign
+from .models import Campaign, CrowdcopUser
 from .forms import UserForm, CrowdcopUserForm, CrimeDetailForm, SuspectForm, PaypalForm, CaptchaForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
 from django.core.mail import send_mail, BadHeaderError
 import math
+from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
@@ -24,12 +25,20 @@ def index(request):
 
 def campaign(request, campaign_id):
 	campaign = get_object_or_404(Campaign, pk=campaign_id)
-
+	following = False
+	try:
+		user_profile=request.user.profile
+	except CrowdcopUser.DoesNotExist:
+		user_profile = CrowdcopUser.objects.create(user=request.user)
+	if request.user.is_authenticated and user_profile.following.filter(id=campaign_id).exists():
+		following=True
 	return render(request, 'crowdcop_web/campaign_template.html', 
-		{'campaign':campaign})
+		{'campaign':campaign, 'following':following})
 
 def profile(request):
-	return render(request, 'crowdcop_web/profile_template.html')
+	user_profile=request.user.profile
+	campaigns=user_profile.following.all()
+	return render(request, 'crowdcop_web/profile_template.html', {'user_profile': user_profile, 'campaigns':campaigns})
 
 def error_404(request):
 	return render(request, 'crowdcop_web/404_template.html')
@@ -164,3 +173,28 @@ def submit_tip(request):
 		captcha_form=CaptchaForm()
 	return render(request, 'crowdcop_web/tip_template.html',
 		{'tip_form': tip_form, 'suspect_form': suspect_form, 'paypal_form':paypal_form, 'captcha_form': captcha_form})	
+
+def follow(request, campaign_id):
+	campaign_to_follow=get_object_or_404(Campaign,pk=campaign_id)
+	try:
+		user_profile=request.user.profile
+	except CrowdcopUser.DoesNotExist:
+		user_profile = CrowdcopUser.objects.create(user=request.user)	
+	if user_profile.following.filter(id=campaign_to_follow.id).exists():
+		return HttpResponse('You already follow this campaign.')
+	else:
+		user_profile.following.add(campaign_to_follow)
+		return HttpResponseRedirect('/crowdcop_web/campaign/'+campaign_id)
+
+def unfollow(request, campaign_id):
+	campaign_to_unfollow=get_object_or_404(Campaign,pk=campaign_id)
+	try:
+		user_profile=request.user.profile
+	except CrowdcopUser.DoesNotExist:
+		user_profile = CrowdcopUser.objects.create(user=request.user)	
+	if user_profile.following.filter(id=campaign_to_unfollow.id).exists():
+		user_profile.following.remove(campaign_to_unfollow)
+		return HttpResponseRedirect('/crowdcop_web/campaign/'+campaign_id)
+	else:
+		return HttpResponse('You aren\'t following this campaign.')
+		
