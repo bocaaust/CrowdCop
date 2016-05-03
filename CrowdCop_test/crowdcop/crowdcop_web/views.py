@@ -26,7 +26,7 @@ def index(request):
 def campaign(request, campaign_id):
 	campaign = get_object_or_404(Campaign, pk=campaign_id)
 	following = False
-	if user.is_authenticated:
+	if request.user.is_authenticated:
 		try:
 			user_profile=request.user.profile
 		except CrowdcopUser.DoesNotExist:
