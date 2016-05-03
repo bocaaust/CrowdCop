@@ -34,6 +34,8 @@ MEDIA_URL='/media/'
 
 STATIC_URL='/static/'
 
+X_FRAME_OPTIONS = 'GOFORIT'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
