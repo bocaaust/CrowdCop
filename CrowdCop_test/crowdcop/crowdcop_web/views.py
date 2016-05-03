@@ -26,12 +26,13 @@ def index(request):
 def campaign(request, campaign_id):
 	campaign = get_object_or_404(Campaign, pk=campaign_id)
 	following = False
-	try:
-		user_profile=request.user.profile
-	except CrowdcopUser.DoesNotExist:
-		user_profile = CrowdcopUser.objects.create(user=request.user)
-	if request.user.is_authenticated and user_profile.following.filter(id=campaign_id).exists():
-		following=True
+	if user.is_authenticated:
+		try:
+			user_profile=request.user.profile
+		except CrowdcopUser.DoesNotExist:
+			user_profile = CrowdcopUser.objects.create(user=request.user)
+		if user_profile.following.filter(id=campaign_id).exists():
+			following=True
 	return render(request, 'crowdcop_web/campaign_template.html', 
 		{'campaign':campaign, 'following':following})
 
