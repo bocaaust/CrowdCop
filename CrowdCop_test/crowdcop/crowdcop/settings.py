@@ -61,7 +61,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'captcha', # Include the django-simple-captcha application
     'widget_tweaks',
-
+    'haystack',
 ]
 
 MIDDLEWARE_CLASSES = [
