@@ -1,7 +1,6 @@
-{% extends 'main_template.html' %}
-
-{% block content %}
-    <h2>Search</h2>
+{%extends "crowdcop_web/form_parent.html"%}
+{%block jumbotron_message%}Search Campaigns {%endblock%}
+{% block form %}
 
     <form method="get" action=".">
         <table>
@@ -16,15 +15,29 @@
 
         {% if query %}
             <h3>Results</h3>
+              <ul class="list-group">
 
             {% for result in page.object_list %}
-                <p>
-                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
-                </p>
+            <li class="list-group-item">
+                <div class="container-fluid">
+                    <div class ="row">
+                        <div class = "col-lg-3 col-md-3 col-sm-3">
+                            <img src="{{result.object.campaign_image_url}}" alt="Campaign Thumbnail" width="100%" class="img-thumbnail">
+                        </div>
+                        <div class = "col-lg-7 col-md-7 col-sm-7">
+                            <a href="/crowdcop_web/campaign/{{result.object.id}}"><h2>{{ result.object.campaign_title }}</h2></a>
+                            <div class="well">
+                                {{ result.object.campaign_description }}
+                            </div>
+                        </div>
+                            
+                    </div>
+                    </div>
+            </li>
             {% empty %}
                 <p>No results found.</p>
             {% endfor %}
-
+            </ul>
             {% if page.has_previous or page.has_next %}
                 <div>
                     {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
