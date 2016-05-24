@@ -28,7 +28,7 @@ urlpatterns = [
   url(r'^admin/', admin.site.urls),
   url(r'^crowdcop_web/',include('crowdcop_web.urls')),
   url(r'^captcha/', include('captcha.urls')),
-               #url(r'^search/', include('haystack.urls')),
+  url(r'^search/', include('haystack.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
