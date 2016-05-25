@@ -38,6 +38,7 @@ def campaign(request, campaign_id):
 	return render(request, 'crowdcop_web/campaign_template.html', 
 		{'campaign':campaign, 'following':following})
 
+@login_required
 def profile(request):
 	user_profile=request.user.profile
 	campaigns=user_profile.following.all()
