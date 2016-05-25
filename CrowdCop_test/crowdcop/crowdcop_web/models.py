@@ -135,7 +135,7 @@ class Tip(models.Model):
 	suspect_other=models.TextField(
 		verbose_name='Other suspect details (clothing, telephone, employment, etc.)',
 		blank=True, null=True)
-
+	approved=models.BooleanField(default=False)
 
 class PayPalID(models.Model):
 	contact_name=models.CharField(

@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from .models import Campaign, CrowdcopUser, Contribution
+from .models import Campaign, CrowdcopUser, Contribution, Tip
 from .forms import UserForm, CrowdcopUserForm, CrimeDetailForm, SuspectForm, PaypalForm, CaptchaForm, CrowdfundForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -35,8 +35,23 @@ def campaign(request, campaign_id):
 			user_profile = CrowdcopUser.objects.create(user=request.user)
 		if user_profile.following.filter(id=campaign_id).exists():
 			following=True
+
+	#update total crowdfunded - sum up all contributions to the campaign
+	total_crowdfunded=0
+	total_contributions = Contribution.objects.filter(campaign=campaign)
+	for contribution in total_contributions:
+		total_crowdfunded += contribution.amount
+	campaign.amount_crowdfunded=total_crowdfunded
+
+	#update number of approved tips
+	total_tips=Tip.objects.filter(approved=True, campaign=campaign)
+	campaign.num_tips=total_tips.count()
+
+	#update value for a new tip
+	tip_value=total_crowdfunded/(campaign.num_tips+1)
+
 	return render(request, 'crowdcop_web/campaign_template.html', 
-		{'campaign':campaign, 'following':following})
+		{'campaign':campaign, 'following':following, 'tip_value':tip_value})
 
 @login_required
 def profile(request):

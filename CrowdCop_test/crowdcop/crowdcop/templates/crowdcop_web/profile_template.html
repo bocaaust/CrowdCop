@@ -104,7 +104,7 @@
       <tr>
             <th scope="row">{{forloop.counter}}</th>
             <td>${{contribution.amount}}</td>
-            <td>{{contribution.campaign.campaign_title}}</td>
+            <td><a href="/crowdcop_web/campaign/{{contribution.campaign.id}}">{{contribution.campaign.campaign_title}}</a></td>
             <td>{{contribution.contribution_date}}</td>
         </tr>
       {%endfor%}
