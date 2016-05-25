@@ -1,14 +1,16 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from .models import Campaign, CrowdcopUser
-from .forms import UserForm, CrowdcopUserForm, CrimeDetailForm, SuspectForm, PaypalForm, CaptchaForm
+from .models import Campaign, CrowdcopUser, Contribution
+from .forms import UserForm, CrowdcopUserForm, CrimeDetailForm, SuspectForm, PaypalForm, CaptchaForm, CrowdfundForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
 from django.core.mail import send_mail, BadHeaderError
 import math
 from django.contrib.auth.models import User
+from django.conf import settings
+
 
 # Create your views here.
 def index(request):
@@ -175,6 +177,7 @@ def submit_tip(request):
 	return render(request, 'crowdcop_web/tip_template.html',
 		{'tip_form': tip_form, 'suspect_form': suspect_form, 'paypal_form':paypal_form, 'captcha_form': captcha_form})	
 
+@login_required
 def follow(request, campaign_id):
 	campaign_to_follow=get_object_or_404(Campaign,pk=campaign_id)
 	try:
@@ -187,6 +190,7 @@ def follow(request, campaign_id):
 		user_profile.following.add(campaign_to_follow)
 		return HttpResponseRedirect('/crowdcop_web/campaign/'+campaign_id)
 
+@login_required
 def unfollow(request, campaign_id):
 	campaign_to_unfollow=get_object_or_404(Campaign,pk=campaign_id)
 	try:
@@ -199,3 +203,36 @@ def unfollow(request, campaign_id):
 	else:
 		return HttpResponse('You aren\'t following this campaign.')
 		
+@login_required
+def crowdfund(request,campaign_id):
+	campaign_to_crowdfund=get_object_or_404(Campaign,pk=campaign_id)
+	'''try:
+		user_profile=request.user.profile
+	except CrowdcopUser.DoesNotExist:
+		user_profile = CrowdcopUser.objects.create(user=request.user)'''
+
+	if request.method=='POST':
+		crowdfund_form=CrowdfundForm(data=request.POST)
+		amount= request.POST['amount']
+		return render(request,'crowdcop_web/pay_template.html',{'campaign':campaign_to_crowdfund, 'amount':amount, 'paypal_url': settings.PAYPAL_URL, 'paypal_email': settings.PAYPAL_EMAIL, 'paypal_return_url': settings.PAYPAL_RETURN_URL})
+	else:
+		crowdfund_form=CrowdfundForm()
+		return render(request,'crowdcop_web/crowdfund_template.html',{'campaign_id':campaign_id, 'crowdfund_form':crowdfund_form, 'campaign':campaign_to_crowdfund, 'paypal_url': settings.PAYPAL_URL, 'paypal_email': settings.PAYPAL_EMAIL, 'paypal_return_url': settings.PAYPAL_RETURN_URL})
+	#return render(request, )	
+
+@login_required
+def crowdfunded(request, user_id, campaign_id,amount):
+	campaign=get_object_or_404(Campaign,pk=campaign_id)
+	user=get_object_or_404(User, pk=user_id)
+	contribution=Contribution(campaign=campaign,user=user,amount=amount)
+	contribution.save()
+	latest_campaigns= Campaign.objects.order_by('-start_date')[:9]
+	trending_campaigns=Campaign.objects.order_by('amount_crowdfunded')[:6]
+	num_pages=int(math.ceil((Campaign.objects.count())/6))+1
+	inactive_page=num_pages+1
+	pages = []
+	for i in range(1,(num_pages+1)):
+		pages.append(i)
+	return render(request,'crowdcop_web/index_template.html', {'latest_campaigns': latest_campaigns, 
+		'trending_campaigns': trending_campaigns, 'current_page':1,'previous_page':0,'next_page':2,
+	 'num_pages':num_pages,'pages':pages,'inactive_page': inactive_page,})

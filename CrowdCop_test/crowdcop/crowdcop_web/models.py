@@ -33,6 +33,7 @@ class CrowdcopUser(models.Model):
 	def get_contributions(self):
 		return Contribution.select().where(Contribution.user==self.user)
 
+
 class Contribution(models.Model):
 	user=models.ForeignKey(
 		User,
@@ -43,6 +44,8 @@ class Contribution(models.Model):
 		Campaign,
 		related_name='contributions'
 		)
+	contribution_date=models.DateTimeField(auto_now_add=True)
+	tx=models.CharField(max_length=250)
 
 class Tip(models.Model):
 	GENDER_CHOICES = (

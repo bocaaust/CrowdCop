@@ -1,0 +1,24 @@
+{%extends "crowdcop_web/form_parent.html"%}
+{% load i18n widget_tweaks %}
+
+{%block title%}Crowdfunding {{campaign.campaign_title}}{%endblock%}
+
+{%block jumbotron_message%}Payment{%endblock%}
+
+{%block heading%}Crowdfunding ${{amount}} for {{campaign.campaign_title}}{%endblock%}
+
+{%block form%}
+<form action="{{ paypal_url }}" method="post">
+{%csrf_token%}
+
+  <input type="hidden" name="amount" value="{{ amount }}">
+  <input type="hidden" name="cmd" value="_xclick">
+  <input type="hidden" name="business" value="{{ paypal_email }}">
+  <input type="hidden" name="item_name" value="{{ campaign.campaign_title }}">
+  <input type="hidden" name="currency_code" value="USD">
+  <input type="hidden" name="return" value="{{ paypal_return_url }}/crowdfunded/{{ user.id }}/{{ campaign.id }}/{{amount}}/">
+  <input type="hidden" name="cancel_return" value="{{ paypal_return_url }}/">
+  <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+	
+{%endblock%}

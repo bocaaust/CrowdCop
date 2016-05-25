@@ -148,3 +148,15 @@ HAYSTACK_CONNECTIONS = {
         'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
     },
 }
+PAYPAL_MODE= "sandbox"
+#Change these fields to "XXXXXXXXXXXXXXX" every time you commit to github
+PAYPAL_CLIENT_ID="XXXXXXXXXXXXXXXXXXXXXXXX"
+PAYPAL_CLIENT_SECRET="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+#once these are actually deployed, replace XXXXXXXX with facilitator email
+PAYPAL_RETURN_URL = 'http://127.0.0.1:8000/crowdcop_web'
+PAYPAL_EMAIL =  'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+PAYPAL_URL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'
+PAYPAL_PDT_URL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'
+
+CSRF_COOKIE_DOMAIN=None

@@ -32,3 +32,6 @@ class PaypalForm(forms.ModelForm):
 
 class CaptchaForm(forms.Form):
   	captcha = CaptchaField()
+
+class CrowdfundForm(forms.Form):
+	amount = forms.DecimalField(max_digits=5, decimal_places=2)

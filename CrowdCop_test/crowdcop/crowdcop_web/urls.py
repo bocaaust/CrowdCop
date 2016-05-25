@@ -34,6 +34,8 @@ urlpatterns = [
 	url(r'^logout/$', views.user_logout, name='logout'),
     url(r'^submit_tip/$', views.submit_tip, name='submit_tip'),
     url(r'^follow/(?P<campaign_id>[0-9]+)/$', views.follow, name='follow'),
-    url(r'^unfollow/(?P<campaign_id>[0-9]+)/$', views.unfollow, name='unfollow')
+    url(r'^unfollow/(?P<campaign_id>[0-9]+)/$', views.unfollow, name='unfollow'),
+    url(r'^crowdfund/(?P<campaign_id>[0-9]+)/$', views.crowdfund, name='crowdfund'),
+    url(r'^crowdfunded/(?P<user_id>[0-9]+)/(?P<campaign_id>[0-9]+)/(?P<amount>\d+\.\d{2})/$', views.crowdfunded,name='crowdfunded' ) # purchase callback
 
 ]

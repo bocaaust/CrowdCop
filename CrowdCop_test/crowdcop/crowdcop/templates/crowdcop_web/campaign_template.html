@@ -39,14 +39,16 @@
           
           {%if user.is_authenticated%}
           <div class="text-right col-lg-6 col-md-6 col-sm-6 col-xs-6">
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <a href="/crowdcop_web/crowdfund/{{campaign.id}}/"
+              class="btn btn-primary btn-lg" type="button">CROWD FUND</a>
+            <!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
           
             <input type="hidden" name="cmd" value="_s-xclick">
             <input type="hidden" name="item_name" value="{{campaign.campaign_title}}">
             <input type="hidden" name="hosted_button_id" value="N48878SMPHKZN">
             <button name = "submit" class = "btn btn-primary btn-lg">CROWD FUND</button>
             <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-            </form>
+            </form>-->
             </div>
             <div class="text-left col-lg-6 col-md-4">
               {%if following%}
@@ -166,15 +168,16 @@
   <div class="row text-center">
   <a name = "crowd-fund"></a>
   {%if user.is_authenticated%}
-    
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <a href="/crowdcop_web/crowdfund/{{campaign.id}}/"
+      class="btn btn-primary btn-lg" type="button">CROWD FUND</a>
+    <!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
     <input type="hidden" name="cmd" value="_s-xclick">
     <input type="hidden" name="item_name" value="{{campaign.campaign_title}}">
     <input type="hidden" name="hosted_button_id" value="N48878SMPHKZN">
     <button name = "submit" class = "btn btn-primary btn-lg">CROWD FUND</button>
     <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
     </form>
-    <img style = "width: 100%; max-width: 400px;" src="http://crowd-cop.com/img/CrowdFund.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> 
+    <img style = "width: 100%; max-width: 400px;" src="http://crowd-cop.com/img/CrowdFund.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> -->
     {%else%}
       <h2>Please <a href="{%url 'login'%}">log in</a> to crowdfund this campaign.</h2>
     {%endif%}
