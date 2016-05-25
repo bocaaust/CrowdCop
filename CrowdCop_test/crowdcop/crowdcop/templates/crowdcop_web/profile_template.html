@@ -1,14 +1,15 @@
 {%extends "crowdcop_web/main_template.html"%}
 
-
+{%load staticfiles%}
 {%block title%}Profile{%endblock%}
 
 {%block content%}
 <div id="fb-root"></div>
-
+<!--<link rel="stylesheet" href="{% static "crowdcop_web/css/bootstrap.css" %}">
+<link rel="stylesheet" href="{% static "crowdcop_web/css/Profile_Style.css" %}">-->
 <style type="text/css">
-@import url("http://crowd-cop.com/css/bootstrap.css");
-@import url("http://crowd-cop.com/css/Profile_Style.css");
+@import url("https://raw.githubusercontent.com/bocaaust/CrowdCop/master/CrowdCop_test/crowdcop/crowdcop/static/crowdcop_web/css/bootstrap.css");
+@import url("https://raw.githubusercontent.com/bocaaust/CrowdCop/master/CrowdCop_test/crowdcop/crowdcop/static/crowdcop_web/css/Profile_Style.css");
 </style>
 
 <script type="text/javascript">
@@ -43,17 +44,17 @@
     </div>
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
       <div class="btn-group" role="group">
-            <button type="button" id="following" class="btn btn-default" href="#tab1" data-toggle="tab"><img class="img glyphicon-align-center" src="http://crowd-cop.com/img/follow_icon_40X40.fw.png" alt = "">
+            <button type="button" id="following" class="btn btn-default" href="#tab1" data-toggle="tab"><img class="img glyphicon-align-center" src="https://i.imgsafe.org/699912f.png" alt = "">
                 <div class="hidden-xs">Following</div>
             </button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" id="supported" class="btn btn-default" href="#tab2" data-toggle="tab"><img class="img glyphicon-align-center" alt = "" src="http://crowd-cop.com/img/icon_heart_40X40.png">
+            <button type="button" id="supported" class="btn btn-default" href="#tab2" data-toggle="tab"><img class="img glyphicon-align-center" alt = "" src="https://i.imgsafe.org/67dc990.png">
                 <div class="hidden-xs">Supported</div>
             </button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" id="about" class="btn btn-default" href="#tab3" data-toggle="tab"><img class="img glyphicon-align-center" src="http://crowd-cop.com/img/person_icon_40X40.fw.png" alt = "">
+            <button type="button" id="about" class="btn btn-default" href="#tab3" data-toggle="tab"><img class="img glyphicon-align-center" src="https://i.imgsafe.org/672a3b0.png" alt = "">
             <div class="hidden-xs">About</div>
             </button>
         </div>
