@@ -88,7 +88,7 @@
           
          
 <table class="table">
-  {%if user.funded.size == 0%}
+  {%if supported.size == 0%}
     This user hasn't crowdfunded anything yet!
   {%else%}
       <thead>
@@ -100,12 +100,12 @@
         </tr>
       </thead>
     <tbody>
-      {%for contribution in user.funded%}
+      {%for contribution in supported%}
       <tr>
             <th scope="row">{{forloop.counter}}</th>
-            <td>$10.00</td>
-            <td>{{contribution.title}}</td>
-            <td>{{contribution.datefunded}}</td>
+            <td>${{contribution.amount}}</td>
+            <td>{{contribution.campaign.campaign_title}}</td>
+            <td>{{contribution.contribution_date}}</td>
         </tr>
       {%endfor%}
     </tbody>

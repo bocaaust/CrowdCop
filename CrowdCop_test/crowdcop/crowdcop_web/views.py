@@ -42,7 +42,9 @@ def campaign(request, campaign_id):
 def profile(request):
 	user_profile=request.user.profile
 	campaigns=user_profile.following.all()
-	return render(request, 'crowdcop_web/profile_template.html', {'user_profile': user_profile, 'campaigns':campaigns})
+	supported=Contribution.objects.filter(user=request.user)
+	return render(request, 'crowdcop_web/profile_template.html', 
+		{'user_profile': user_profile, 'campaigns':campaigns,'supported':supported,})
 
 def error_404(request):
 	return render(request, 'crowdcop_web/404_template.html')
