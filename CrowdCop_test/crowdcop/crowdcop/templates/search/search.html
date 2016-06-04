@@ -1,4 +1,5 @@
 {%extends "crowdcop_web/form_parent.html"%}
+{%block title%}Search: "{{query}}"{%endblock%}
 {%block jumbotron_message%}Search Campaigns {%endblock%}
 {% block form %}
 
@@ -22,7 +23,8 @@
                 <div class="container-fluid">
                     <div class ="row">
                         <div class = "col-lg-3 col-md-3 col-sm-3">
-                            <img src="{{result.object.campaign_image_url}}" alt="Campaign Thumbnail" width="100%" class="img-thumbnail">
+                        <div class="thumbnail" width="254" height="175" style="margin-bottom:0px;width:match-parent;height:175px;background-position:center;background-size:cover;background-image: url({{result.object.campaign_image_url}})"></div>
+                           <!-- <img src="{{result.object.campaign_image_url}}" alt="Campaign Thumbnail" width="100%" class="img-thumbnail">-->
                         </div>
                         <div class = "col-lg-7 col-md-7 col-sm-7">
                             <a href="/crowdcop_web/campaign/{{result.object.id}}"><h2>{{ result.object.campaign_title }}</h2></a>
