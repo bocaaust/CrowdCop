@@ -40,7 +40,7 @@
           {%if user.is_authenticated%}
           <div class="text-right col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <a href="/crowdcop_web/crowdfund/{{campaign.id}}/"
-              class="btn btn-primary btn-lg" type="button">CROWD FUND</a>
+              class="btn btn-primary btn-lg" type="button" style="text-shadow:none">CROWD FUND</a>
             <!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
           
             <input type="hidden" name="cmd" value="_s-xclick">
@@ -53,10 +53,10 @@
             <div class="text-left col-lg-6 col-md-4">
               {%if following%}
               <a href="/crowdcop_web/unfollow/{{campaign.id}}"
-                  class="btn btn-danger btn-lg" type="button">Unfollow</a>
+                  class="btn btn-danger btn-lg" type="button" style="text-shadow:none">Unfollow</a>
               {%else%}
               <a href="/crowdcop_web/follow/{{campaign.id}}"
-                  class="btn btn-success btn-lg" type="button">Follow</a>
+                  class="btn btn-success btn-lg" type="button" style="text-shadow:none">Follow</a>
               {%endif%}
             {%else%}
             <div class="text-center col-lg-12">
