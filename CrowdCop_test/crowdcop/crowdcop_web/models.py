@@ -33,8 +33,9 @@ class CrowdcopUser(models.Model):
 	def get_contributions(self):
 		return Contribution.select().where(Contribution.user==self.user)
 	def get_history(self):
-		return View.select().where(View.user==self.user)
-
+		return CampaignView.objects.filter(user=self.user)
+	def __unicode__(self):
+		return "{}".format(self.user.username)
 class Contribution(models.Model):
 	user=models.ForeignKey(
 		User,
@@ -47,7 +48,8 @@ class Contribution(models.Model):
 		)
 	contribution_date=models.DateTimeField(auto_now_add=True)
 	tx=models.CharField(max_length=250)
-
+	def __unicode__(self):
+		return "${} towards {} from {} at {}".format(self.amount,self.campaign,self.user,self.contribution_date)
 class Tip(models.Model):
 	GENDER_CHOICES = (
 		('MALE', 'Male'),
@@ -149,10 +151,12 @@ class PayPalID(models.Model):
 		verbose_name='How can we contact you?',
 		blank=True,null=True)
 
-class View(models.Model):
+class CampaignView(models.Model):
 	user=models.ForeignKey(User, related_name='user')
 	campaign = models.ForeignKey(
 		Campaign,
 		related_name='campaign'
 		)
 	date=models.DateTimeField(auto_now_add=True)
+	def __unicode__(self):
+		return "\"{}\" viewed by {} on {}".format(self.campaign.campaign_title,self.user.username, self.date)

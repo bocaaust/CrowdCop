@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from .models import Campaign, CrowdcopUser, Contribution, Tip, View
+from .models import Campaign, CrowdcopUser, Contribution, Tip, CampaignView
 from .forms import UserForm, CrowdcopUserForm, CrimeDetailForm, SuspectForm, PaypalForm, CaptchaForm, CrowdfundForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -10,7 +10,6 @@ from django.core.mail import send_mail, BadHeaderError
 import math
 from django.contrib.auth.models import User
 from django.conf import settings
-
 
 # Create your views here.
 def index(request):
@@ -256,3 +255,23 @@ def crowdfunded(request, user_id, campaign_id,amount):
 	return render(request,'crowdcop_web/index_template.html', {'latest_campaigns': latest_campaigns, 
 		'trending_campaigns': trending_campaigns, 'current_page':1,'previous_page':0,'next_page':2,
 	 'num_pages':num_pages,'pages':pages,'inactive_page': inactive_page,})
+
+def history(request):
+	user=request.user
+	try:
+		user_profile=request.user.profile
+	except CrowdcopUser.DoesNotExist:
+		user_profile = CrowdcopUser.objects.create(user=request.user)
+	history=user_profile.get_history()
+	campaigns=history.values('campaign').distinct()
+	campaign_list=[]
+	for campaign in campaigns:
+		this_campaign = get_object_or_404(Campaign, pk=campaign['campaign'])
+		print this_campaign
+		campaign_list.append(this_campaign)
+	for campaign in campaign_list:
+		print campaign
+	history=history.order_by('-date')
+	for view in history:
+		print view
+	return render(request,'crowdcop_web/history_template.html',{'history':history,'campaigns':campaign_list,})

@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^campaign/(?P<campaign_id>[0-9]+)/$', views.campaign, name='campaign'),
     url(r'^profile', views.profile, name='profile'),
+    url(r'^history', views.history, name='history'),
     url(r'^404', views.error_404, name='404'),
     url(r'^creators', views.creators, name='creators'),
     url(r'^faq', views.faq, name='faq'),
