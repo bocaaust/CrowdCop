@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from .models import Campaign, CrowdcopUser, Contribution, Tip
+from .models import Campaign, CrowdcopUser, Contribution, Tip, View
 from .forms import UserForm, CrowdcopUserForm, CrimeDetailForm, SuspectForm, PaypalForm, CaptchaForm, CrowdfundForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -28,6 +28,8 @@ def index(request):
 def campaign(request, campaign_id):
 	campaign = get_object_or_404(Campaign, pk=campaign_id)
 	following = False
+	view=View(user=request.user, campaign=campaign)
+	view.save()
 	if request.user.is_authenticated():
 		try:
 			user_profile=request.user.profile

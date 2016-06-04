@@ -32,7 +32,8 @@ class CrowdcopUser(models.Model):
 	following = models.ManyToManyField(Campaign)
 	def get_contributions(self):
 		return Contribution.select().where(Contribution.user==self.user)
-
+	def get_history(self):
+		return View.select().where(View.user==self.user)
 
 class Contribution(models.Model):
 	user=models.ForeignKey(
@@ -147,3 +148,11 @@ class PayPalID(models.Model):
 	contact_info=models.TextField(
 		verbose_name='How can we contact you?',
 		blank=True,null=True)
+
+class View(models.Model):
+	user=models.ForeignKey(User, related_name='user')
+	campaign = models.ForeignKey(
+		Campaign,
+		related_name='campaign'
+		)
+	date=models.DateTimeField(auto_now_add=True)
