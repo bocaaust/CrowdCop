@@ -166,12 +166,20 @@ overflow: hidden;">          <h3 style="display:block; display: -webkit-box;
       <div class="media-object-default">
       {%for campaign in latest_campaigns%}
         {%if forloop.counter < 4%}
-           <div class="media">
-              <div class="media-left"> <a href="/crowdcop_web/campaign/{{campaign.id}}"> <img class="media-object" width = "100px" 
-              src="{{campaign.campaign_image_url}}" alt="placeholder image"> </a> </div>
-              <div class="media-body">
-                <h4 class="media-heading">{{campaign.campaign_title}}</h4>
-                {{campaign.campaign_description}} </div>
+           <div class="media" height="100">
+              <div class="media-left media-object" style="margin-bottom:0;width:100px;height:100px;background-position:center;background-size:cover;background-image: url({{campaign.campaign_image_url}})">  <img class="media-object"
+               width="100px" alt="">  </div>
+              <div class="media-body" style="padding:6px;height=100px;">
+                <a href="/crowdcop_web/campaign/{{campaign.id}}"><h4 class="media-heading" style="display:block; display: -webkit-box;
+            height: 18px; /* Fallback for non-webkit */
+            max-height: 1em;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;overflow:hidden;">{{campaign.campaign_title}}</h4></a>
+                <p style="display:block; display: -webkit-box;
+            height: 78px; /* Fallback for non-webkit */
+            max-height: 6em;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;overflow:hidden;">{{campaign.campaign_description}}</p> </div>
             </div>          
         {%endif%}
 
@@ -183,13 +191,21 @@ overflow: hidden;">          <h3 style="display:block; display: -webkit-box;
       <div class="media-object-default">
       {%for campaign in latest_campaigns%}
         {%if forloop.counter >= 4 and forloop.counter < 7%}
-           <div class="media">
-              <div class="media-left"> <a href="/crowdcop_web/campaign/{{campaign.id}}"> <img class="media-object" width = "100px" 
-              src="{{campaign.campaign_image_url}}" alt="placeholder image"> </a> </div>
-              <div class="media-body">
-                <h4 class="media-heading">{{campaign.campaign_title}}</h4>
-                {{campaign.campaign_description}} </div>
-            </div>          
+           <div class="media" height="100">
+              <div class="media-left media-object" style="margin-bottom:0;width:100px;height:100px;background-position:center;background-size:cover;background-image: url({{campaign.campaign_image_url}})">  <img class="media-object"
+               width="100px" alt="">  </div>
+              <div class="media-body" style="padding:6px;height=100px;">
+                <a href="/crowdcop_web/campaign/{{campaign.id}}"><h4 class="media-heading" style="display:block; display: -webkit-box;
+            height: 18px; /* Fallback for non-webkit */
+            max-height: 1em;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;overflow:hidden;">{{campaign.campaign_title}}</h4></a>
+                <p style="display:block; display: -webkit-box;
+            height: 78px; /* Fallback for non-webkit */
+            max-height: 6em;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;overflow:hidden;">{{campaign.campaign_description}}</p> </div>
+            </div>     
         {%endif%}
 
       {%endfor%}
@@ -200,13 +216,21 @@ overflow: hidden;">          <h3 style="display:block; display: -webkit-box;
       <div class="media-object-default">
         {%for campaign in latest_campaigns%}
           {%if forloop.counter >= 7 and forloop.counter < 10%}
-             <div class="media">
-                <div class="media-left"> <a href="/crowdcop_web/campaign/{{campaign.id}}"> <img class="media-object" width = "100px" 
-                src="{{campaign.campaign_image_url}}" alt="placeholder image"> </a> </div>
-                <div class="media-body">
-                  <h4 class="media-heading">{{campaign.campaign_title}}</h4>
-                  {{campaign.campaign_description}} </div>
-              </div>          
+           <div class="media" height="100">
+              <div class="media-left media-object" style="margin-bottom:0;width:100px;height:100px;background-position:center;background-size:cover;background-image: url({{campaign.campaign_image_url}})">  <img class="media-object"
+               width="100px" alt="">  </div>
+              <div class="media-body" style="padding:6px;height=100px;">
+                <a href="/crowdcop_web/campaign/{{campaign.id}}"><h4 class="media-heading" style="display:block; display: -webkit-box;
+            height: 18px; /* Fallback for non-webkit */
+            max-height: 1em;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;overflow:hidden;">{{campaign.campaign_title}}</h4></a>
+                <p style="display:block; display: -webkit-box;
+            height: 78px; /* Fallback for non-webkit */
+            max-height: 6em;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;overflow:hidden;">{{campaign.campaign_description}}</p> </div>
+            </div>          
           {%endif%}
         {%endfor%}
       </div>
