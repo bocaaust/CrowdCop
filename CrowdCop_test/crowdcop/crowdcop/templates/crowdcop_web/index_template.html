@@ -62,10 +62,21 @@
     <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
       <div class="thumbnail"> 
 
-        <div class="thumbnail" width="400" height="300" style="width:match-parent;height:200px;background-position:center;background-size:cover;background-image: url({{campaign.campaign_image_url}})"><!--<img src="{{campaign.campaign_image_url}}" alt="Thumbnail Image 1" class="img-responsive"  style="object-fit:cover">--></div>
+        <div class="thumbnail" width="400" height="300" style="margin-bottom:0px;width:match-parent;height:200px;background-position:center;background-size:cover;background-image: url({{campaign.campaign_image_url}})"><!--<img src="{{campaign.campaign_image_url}}" alt="Thumbnail Image 1" class="img-responsive"  style="object-fit:cover">--></div>
+        <div class="caption" style="margin-bottom:0px;display:inline-block;height:150px;
+overflow: hidden;">
+            <h3 style="display:block; display: -webkit-box;
+            height: 26*1.428; /* Fallback for non-webkit */
+            max-height: 1em;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;overflow:hidden;">{{campaign.campaign_title}}</h3>
+            <p style="display:block; display: -webkit-box;
+            height: 14*1.428*3; /* Fallback for non-webkit */
+            max-height: 4em;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;overflow:hidden;">{{campaign.campaign_description}}</p>
+        </div>
         <div class="caption">
-            <h3>{{campaign.campaign_title}}</h3>
-            <p>{{campaign.campaign_description}}</p>
             <p><a href="/crowdcop_web/campaign/{{campaign.id}}" class="btn btn-primary" role="button">Crowd Fund</a></p>
         </div>
       </div>
@@ -74,10 +85,19 @@
   {%endfor%}
     <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hidden-lg hidden-md hidden-sm">
       <div class="thumbnail"> 
-                <div class="thumbnail" width="400" height="300" style="width:match-parent;height:200px;background-position:center;background-size:cover;background-image: url({{trending_campaigns.3.campaign_image_url}})"><!--<img src="{{campaign.campaign_image_url}}" alt="Thumbnail Image 1" class="img-responsive"  style="object-fit:cover">--></div>
-        <div class="caption">
-          <h3>{{trending_campaigns.3.campaign_title}}</h3>
-          <p>{{trending_campaigns.3.campaign_description}}</p>
+                <div class="thumbnail" width="400" height="300" style="margin-bottom:0px;width:match-parent;height:200px;background-position:center;background-size:cover;background-image: url({{trending_campaigns.3.campaign_image_url}})"><!--<img src="{{campaign.campaign_image_url}}" alt="Thumbnail Image 1" class="img-responsive"  style="object-fit:cover">--></div>
+        <div class="caption" style="margin-bottom:0px;display:inline-block;height:150px;
+overflow: hidden;">          <h3 style="display:block; display: -webkit-box;
+            height: 26*1.428; /* Fallback for non-webkit */
+            max-height: 1em;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;overflow:hidden;">{{trending_campaigns.3.campaign_title}}</h3>
+          <p style="display:block; display: -webkit-box;
+            height: 14*1.428*3; /* Fallback for non-webkit */
+            max-height: 4em;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;overflow:hidden;">{{trending_campaigns.3.campaign_description}}</p></div>
+          <div class= "caption">
           <p><a href="/crowdcop_web/campaign/{{trending_campaigns.3.id}}" class="btn btn-primary" role="button">Crowd Fund</a></p>
         </div>
       </div>
@@ -88,11 +108,20 @@
     {%if forloop.counter >= 4%}
     <div class="col-sm-4 col-md-4 col-lg-4 col-xs-4">
       <div class="thumbnail"> 
-              <div class="thumbnail" width="400" height="300" style="width:match-parent;height:200px;background-position:center;background-size:cover;background-image: url({{campaign.campaign_image_url}})"><!--<img src="{{campaign.campaign_image_url}}" alt="Thumbnail Image 1" class="img-responsive"  style="object-fit:cover">--></div>
+              <div class="thumbnail" width="400" height="300" style="margin-bottom:0;width:match-parent;height:200px;background-position:center;background-size:cover;background-image: url({{campaign.campaign_image_url}})"><!--<img src="{{campaign.campaign_image_url}}" alt="Thumbnail Image 1" class="img-responsive"  style="object-fit:cover">--></div>
 
-        <div class="caption">
-          <h3>{{campaign.campaign_title}}</h3>
-          <p>{{campaign.campaign_description}}</p>
+        <div class="caption" style="margin-bottom:0px;display:inline-block;height:150px;
+overflow: hidden;">          <h3 style="display:block; display: -webkit-box;
+            height: 26*1.428; /* Fallback for non-webkit */
+            max-height: 1em;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;overflow:hidden;">{{campaign.campaign_title}}</h3>
+          <p style="display:block; display: -webkit-box;
+            height: 14*1.428*3; /* Fallback for non-webkit */
+            max-height: 4em;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;overflow:hidden;">{{campaign.campaign_description}}</p></div>
+          <div class= "caption">
           <p><a href="/crowdcop_web/campaign/{{campaign.id}}" class="btn btn-primary" role="button">Crowd Fund</a></p>
         </div>
       </div>
