@@ -26,7 +26,7 @@ LOGIN_URL="/crowdcop_web/login/"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-STATIC_ROOT = "CrowdCop/CrowdCop_test/crowdcop/static/"
+STATIC_ROOT = "crowdcop/static/"
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 

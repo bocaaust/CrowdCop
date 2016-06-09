@@ -66,7 +66,7 @@
                 background-color: black;
                 border: 1px solid black;
                 opacity: 0.6;
-                filter: alpha(opacity=60); /* For IE8 and earlier */">Please <a href="{%url 'login'%}">sign in</a> to follow or crowdfund this campaign.</p>
+                filter: alpha(opacity=60); /* For IE8 and earlier */">Please <a href="{%url 'login'%}?next=/crowdcop_web/campaign/{{campaign.id}}">sign in</a> to follow or crowdfund this campaign.</p>
             </div>
             {%endif%}
             </div>
@@ -181,7 +181,7 @@
     </form>
     <img style = "width: 100%; max-width: 400px;" src="http://crowd-cop.com/img/CrowdFund.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> -->
     {%else%}
-      <h2>Please <a href="{%url 'login'%}">log in</a> to crowdfund this campaign.</h2>
+      <h2>Please <a href="{%url 'login'%}?next=/crowdcop_web/crowdfund/{{campaign.id}}">log in</a> to crowdfund this campaign.</h2>
     {%endif%}
   </div>
 </div>

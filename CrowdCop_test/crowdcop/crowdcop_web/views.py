@@ -148,7 +148,9 @@ def user_login(request):
 		if user:
 			if user.is_active:
 				login(request,user)
-				return HttpResponseRedirect(request.GET['next'])
+				if request.GET.get('next'):
+					return HttpResponseRedirect(request.GET.get('next'))
+				return HttpResponseRedirect('/crowdcop_web/')
 			else:
 				return HttpResponse("Your CrowdCop account has been disabled.")
 		else:
