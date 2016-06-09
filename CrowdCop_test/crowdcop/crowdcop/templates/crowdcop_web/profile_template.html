@@ -122,7 +122,7 @@
             <div class="caption">
               <h3>{{campaign.campaign_title}}</h3>
               <p>{{campaign.campaign_description}}</p>
-              <p><a href="/crowdcop_web/campaign/{{campaign.id}}" class="btn btn-primary" role="button">Crowd Fund</a></p>
+              <p><a href="/crowdcop_web/campaign/{{campaign.id}}/" class="btn btn-primary" role="button">Crowd Fund</a></p>
             </div>
           </div>
         </div>
@@ -153,7 +153,7 @@
       <tr>
             <th scope="row">{{forloop.counter}}</th>
             <td>${{contribution.amount}}</td>
-            <td><a href="/crowdcop_web/campaign/{{contribution.campaign.id}}">{{contribution.campaign.campaign_title}}</a></td>
+            <td><a href="/crowdcop_web/campaign/{{contribution.campaign.id}}/">{{contribution.campaign.campaign_title}}</a></td>
             <td>{{contribution.contribution_date}}</td>
         </tr>
       {%endfor%}

@@ -27,16 +27,20 @@ def index(request):
 def campaign(request, campaign_id):
 	campaign = get_object_or_404(Campaign, pk=campaign_id)
 	following = False
-	view=CampaignView(user=request.user, campaign=campaign)
-	view.save()
-	if request.user.is_authenticated():
+	current_user=request.user
+	
+	if current_user.is_authenticated():
 		try:
-			user_profile=request.user.profile
+			user_profile=current_user.profile
 		except CrowdcopUser.DoesNotExist:
-			user_profile = CrowdcopUser.objects.create(user=request.user)
+			user_profile = CrowdcopUser.objects.create(user=current_user)
 		if user_profile.following.filter(id=campaign_id).exists():
 			following=True
-
+		view=CampaignView(user=current_user, campaign=campaign)
+		view.save()
+	else:
+		view=CampaignView(campaign=campaign)
+		view.save()
 	#update total crowdfunded - sum up all contributions to the campaign
 	total_crowdfunded=0
 	total_contributions = Contribution.objects.filter(campaign=campaign)
@@ -144,7 +148,7 @@ def user_login(request):
 		if user:
 			if user.is_active:
 				login(request,user)
-				return HttpResponseRedirect('/crowdcop_web/')
+				return HttpResponseRedirect(request.GET['next'])
 			else:
 				return HttpResponse("Your CrowdCop account has been disabled.")
 		else:
@@ -256,6 +260,7 @@ def crowdfunded(request, user_id, campaign_id,amount):
 		'trending_campaigns': trending_campaigns, 'current_page':1,'previous_page':0,'next_page':2,
 	 'num_pages':num_pages,'pages':pages,'inactive_page': inactive_page,})
 
+@login_required
 def history(request):
 	user=request.user
 	try:

@@ -22,11 +22,11 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 STATICFILES_DIRS = [
 ]
 
-
+LOGIN_URL="/crowdcop_web/login/"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-STATIC_ROOT = "crowdcop/static/"
+STATIC_ROOT = "CrowdCop/CrowdCop_test/crowdcop/static/"
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 

@@ -152,11 +152,16 @@ class PayPalID(models.Model):
 		blank=True,null=True)
 
 class CampaignView(models.Model):
-	user=models.ForeignKey(User, related_name='user')
+	user=models.ForeignKey(User, blank=True, null=True, related_name='user')
 	campaign = models.ForeignKey(
 		Campaign,
 		related_name='campaign'
 		)
 	date=models.DateTimeField(auto_now_add=True)
 	def __unicode__(self):
-		return "\"{}\" viewed by {} on {}".format(self.campaign.campaign_title,self.user.username, self.date)
+		str=""
+		try:
+			str="\"{}\" viewed by {} on {}".format(self.campaign.campaign_title,self.user.username, self.date)
+		except AttributeError:
+			str="\"{}\" viewed by an anonymous user on {}".format(self.campaign.campaign_title,self.date)
+		return str

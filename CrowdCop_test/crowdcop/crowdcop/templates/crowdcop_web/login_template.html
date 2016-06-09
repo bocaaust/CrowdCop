@@ -5,6 +5,7 @@
 {%block jumbotron_message%}Welcome to CrowdCop{%endblock%}
 	{%block heading%}Sign In{%endblock%}
    {%block form%}
+
 	 <form id="login_form" method="post" action="/crowdcop_web/login/">
 	 	{% csrf_token %}
 		Username: <input type="text" name="username" value="" size="50" class="form-control"/>

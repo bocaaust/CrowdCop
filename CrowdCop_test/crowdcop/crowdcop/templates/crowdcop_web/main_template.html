@@ -68,6 +68,10 @@
           {%if user.is_authenticated%}
             <li><a href="{%url 'profile'%}">Profile</a> </li>
           {%endif%}
+          {%if user.is_staff%}
+          <li><a href="{% url 'admin:index' %}">Admin Panel</a></li>
+          {%endif%}
+
             <li><a href="{%url 'history'%}">History</a> </li>
             <li><a href="#">Nearby Campaigns</a> </li>
             <li class="divider"></li>
@@ -130,7 +134,9 @@
           <div class="col-sm-4 col-md-4 col-lg-4  col-xs-6">
             <div>
               <ul class="list-unstyled">
-                <li> <a>History</a> </li>
+                {%if user.is_authenticated%}
+                <li> <a href="{%url 'history'%}">History</a> </li>
+                {%endif%}
                 <li> <a>Nearby Campaigns</a> </li>
                 <li> <a href = "{% url 'creators'%}">Creators</a> </li>
                 <li> <a href="http://rcos.io">RCOS</a> </li>
