@@ -6,7 +6,12 @@
 {%block title%}{{campaign.campaign_title}}{%endblock%}
 
 {%block content%}
-<div id="fb-root"></div>
+
+
+<div id="fb-root"><meta property="og:title"              content="{{campaign.campaign_title}}" />
+<meta property="og:description"        content="{{campaign.campaign_description}}" />
+<meta property="og:image"              content="{{campaign_campaign_image_url}}" />
+</div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;

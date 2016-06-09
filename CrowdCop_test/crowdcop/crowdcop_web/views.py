@@ -27,7 +27,7 @@ def index(request):
 def campaign(request, campaign_id):
 	campaign = get_object_or_404(Campaign, pk=campaign_id)
 	following = False
-	view=View(user=request.user, campaign=campaign)
+	view=CampaignView(user=request.user, campaign=campaign)
 	view.save()
 	if request.user.is_authenticated():
 		try:
