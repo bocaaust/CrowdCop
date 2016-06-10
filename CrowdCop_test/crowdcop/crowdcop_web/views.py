@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import Campaign, CrowdcopUser, Contribution, Tip, CampaignView
-from .forms import UserForm, CrowdcopUserForm, CrimeDetailForm, SuspectForm, PaypalForm, CaptchaForm, CrowdfundForm
+from .forms import UserForm, CrowdcopUserForm, CrimeDetailForm, SuspectForm, PaypalForm, CaptchaForm, CrowdfundForm, AvatarForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
@@ -282,3 +282,21 @@ def history(request):
 	for view in history:
 		print view
 	return render(request,'crowdcop_web/history_template.html',{'history':history,'campaigns':campaign_list,})
+
+@login_required
+def change_image(request):
+	user=request.user
+	try:
+		user_profile=user.profile
+	except CrowdcopUser.DoesNotExist:
+		user_profile = CrowdcopUser.objects.create(user=user)
+	campaigns=user_profile.following.all()
+	supported=Contribution.objects.filter(user=user)
+	if request.method == 'POST':
+		if 'image' in request.FILES:
+			user_profile.profile_picture=request.FILES['image']
+			user_profile.save()
+			print user_profile.profile_picture.url
+			return HttpResponseRedirect('/crowdcop_web/profile/')
+	return render(request, 'crowdcop_web/profile_template.html', 
+		{'user_profile': user_profile, 'campaigns':campaigns,'supported':supported,})

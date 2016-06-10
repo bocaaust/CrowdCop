@@ -15,6 +15,11 @@ class CrowdcopUserForm(forms.ModelForm):
 		model = CrowdcopUser
 		fields = ('institution',)
 
+class AvatarForm(forms.ModelForm):
+	class Meta:
+		model = CrowdcopUser
+		fields = ('profile_picture',)
+
 class CrimeDetailForm(forms.ModelForm):
 	class Meta:
 		model= Tip

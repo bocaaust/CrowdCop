@@ -30,6 +30,8 @@ class CrowdcopUser(models.Model):
 	user=models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
 	institution=models.CharField(max_length=100)
 	following = models.ManyToManyField(Campaign)
+	profile_picture=models.ImageField(default="default_image.png")
+
 	def get_contributions(self):
 		return Contribution.select().where(Contribution.user==self.user)
 	def get_history(self):

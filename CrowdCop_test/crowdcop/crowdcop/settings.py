@@ -45,7 +45,7 @@ SECRET_KEY = 'REDACTED'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'crowd-cop.com', 'crowdcop.io']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','104.236.126.25','www.crowdcop.io']
 
 
 # Application definition
@@ -89,6 +89,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.media',
             ],
         },
     },
