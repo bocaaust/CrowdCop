@@ -8,7 +8,7 @@
 {%block heading%}{{campaign.campaign_title}}{%endblock%}
 
 {%block form%}
-	<form id= "crowdfund_form" method = "POST" action="/crowdcop_web/crowdfund/{{campaign_id}}/">
+	<form id= "crowdfund_form" method = "POST" action="http://104.236.126.25/crowdcop_web/crowdfund/{{campaign_id}}/">
 		{% csrf_token %}
 		{% for field in crowdfund_form %}
 		    <div class="form-group">

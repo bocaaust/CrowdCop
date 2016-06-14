@@ -40,7 +40,7 @@ X_FRAME_OPTIONS = 'GOFORIT'
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'REDACTED'
+SECRET_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -151,12 +151,12 @@ HAYSTACK_CONNECTIONS = {
 }
 PAYPAL_MODE= "sandbox"
 #Change these fields to "XXXXXXXXXXXXXXX" every time you commit to github
-PAYPAL_CLIENT_ID="XXXXXXXXXXXXXXXXXXXXXXXX"
-PAYPAL_CLIENT_SECRET="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+PAYPAL_CLIENT_ID="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+PAYPAL_CLIENT_SECRET="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
 #once these are actually deployed, replace XXXXXXXX with facilitator email
-PAYPAL_RETURN_URL = 'http://127.0.0.1:8000/crowdcop_web'
-PAYPAL_EMAIL =  'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+PAYPAL_RETURN_URL = 'http://104.236.126.25:8001/crowdcop_web/'
+PAYPAL_EMAIL =  'XXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 PAYPAL_URL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'
 PAYPAL_PDT_URL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'
 

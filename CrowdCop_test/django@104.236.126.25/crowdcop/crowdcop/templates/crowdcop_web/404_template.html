@@ -1,0 +1,16 @@
+{%extends "crowdcop_web/error_template.html"%}
+
+{%block title%}404- Page Not Found{%endblock%}
+
+{%block img%}
+	<img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Pup2.JPG">
+{%endblock%}
+
+{%block error-title%}Oops!{%endblock%}
+{%block error-msg%}
+	<h3>The content you were searching for was not found.</h3>
+	<br>
+	<h4>If you don't see a campaign for an issue you care about, <a href="{%url 'submit_tip'%}">submit a tip!*</a></h4>
+	<p>*Only approved tips will contribute to new or existing campaigns.</p>
+
+{%endblock%}
