@@ -1,2 +1,0 @@
-{{object.campaign_title}}
-{{object.campaign_description}}
