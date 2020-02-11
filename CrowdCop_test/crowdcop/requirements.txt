@@ -16,7 +16,7 @@ debtagshw==0.1
 decorator==4.0.6
 defer==1.0.6
 dirspec==13.10
-Django==1.9.1
+Django==1.11.28
 django-haystack==2.5.dev0
 django-mathfilters==0.3.0
 django-registration==2.0.4
