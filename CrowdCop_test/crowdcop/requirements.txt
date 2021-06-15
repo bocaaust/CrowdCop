@@ -87,7 +87,7 @@ sessioninstaller==0.0.0
 six==1.5.2
 software-center-aptd-plugins==0.0.0
 system-service==0.1.6
-thefuck==3.3
+thefuck==3.31
 Twisted-Core==13.2.0
 Twisted-Names==13.2.0
 Twisted-Web==13.2.0
