@@ -54,7 +54,7 @@ oauthlib==0.6.1
 oneconf==0.3.7.14.4.1
 osc===0.142git
 PAM==0.4.2
-paramiko==1.10.1
+paramiko==2.10.1
 pathlib==1.0.1
 paypalrestsdk==1.11.5
 peewee==2.7.4
