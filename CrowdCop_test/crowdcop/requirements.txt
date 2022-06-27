@@ -81,7 +81,7 @@ python-debian===0.1.21-nmu2ubuntu2
 python-distutils-extra==2.38
 pyvorbis==1.5
 pyxdg==0.25
-reportlab==3.0
+reportlab==3.5.55
 requests==2.2.1
 sessioninstaller==0.0.0
 six==1.5.2
