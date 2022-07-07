@@ -82,7 +82,7 @@ python-distutils-extra==2.38
 pyvorbis==1.5
 pyxdg==0.25
 reportlab==3.0
-requests==2.2.1
+requests==2.20.0
 sessioninstaller==0.0.0
 six==1.5.2
 software-center-aptd-plugins==0.0.0
