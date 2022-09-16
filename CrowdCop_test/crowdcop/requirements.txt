@@ -43,7 +43,7 @@ Jinja2==2.8
 lockfile==0.8
 lxml==3.3.3
 M2Crypto==0.21.1
-Mako==0.9.1
+Mako==1.2.2
 MarkupSafe==0.18
 mock==1.0.1
 mysql-connector-python==1.1.6
